@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { CheckCircle, Code, Database, Zap, BookOpen, Users, Calendar } from "lucide-react"
+import Image from "next/image"
 
 export default function LandingPage() {
   const [purchaseCount, setPurchaseCount] = useState(0)
@@ -264,50 +265,88 @@ agent = RetrievalQA.from_chain_type(
             <h2 className="text-3xl font-bold mb-4">Как проходит обучение</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start mb-4">
-                <Calendar className="h-6 w-6 text-indigo-600 mr-3 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold mb-2">10 интенсивных дней</h3>
-                  <p className="text-gray-700">
-                    На лекциях вы получите теоретическую базу и разберёте бизнес-кейсы по
-                    интеграции RAG и созданию AI-агентов.
-                  </p>
+          <div className="space-y-12">
+            {/* Item 1 */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="bg-gray-200 rounded-lg aspect-video overflow-hidden">
+                {/* Placeholder for image */}
+                <Image src="/1.jpg" alt="1" className="w-full h-full object-cover" width={1000} height={1000} />
+                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 1</div> */}
+              </div>
+              <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
+                <div className="flex items-start mb-4">
+                  <Calendar className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">10 интенсивных дней</h3>
+                    <p className="text-gray-700">
+                      На лекциях вы получите теоретическую базу и разберёте бизнес-кейсы по интеграции RAG и созданию
+                      AI-агентов.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start mb-4">
-                <BookOpen className="h-6 w-6 text-indigo-600 mr-3 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Презентации с первоклассными материалами</h3>
-                  <p className="text-gray-700">
-                    Вс самое важное про курс и не только! Пошаговые инструкции, требуемые пакеты и даже готовые промты - все эти материалы будут ваши.
-                  </p>
+
+            {/* Item 2 */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1 bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
+                <div className="flex items-start mb-4">
+                  <BookOpen className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Презентации с первоклассными материалами</h3>
+                    <p className="text-gray-700">
+                      Вс самое важное про курс и не только! Пошаговые инструкции, требуемые пакеты и даже готовые промты
+                      - все эти материалы будут ваши.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 md:order-2 bg-gray-200 rounded-lg aspect-video overflow-hidden">
+                {/* Placeholder for image */}
+                <img src="/2.jpg" alt="2" className="w-full h-full object-cover" />
+                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 2</div> */}
+              </div>
+            </div>
+
+            {/* Item 3 */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="bg-gray-200 rounded-lg aspect-video overflow-hidden">
+                {/* Placeholder for image */}
+                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 3</div> */}
+                <Image src="/4.webp" alt="3" className="w-full h-full object-cover" width={1000} height={1000} />
+              </div>
+              <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
+                <div className="flex items-start mb-4">
+                  <Users className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Общение и коммьюнити</h3>
+                    <p className="text-gray-700">
+                      Живое общение на лекции, чат-комнаты с коллегами и практические сессии позволят быстрее осваивать
+                      самые передовые инструменты.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start mb-4">
-                <Users className="h-6 w-6 text-indigo-600 mr-3 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Общение и коммьюнити</h3>
-                  <p className="text-gray-700">
-                    Живое общение на лекции, чат-комнаты с коллегами и практические сессии позволят быстрее осваивать самые передовые инструменты.
-                  </p>
+
+            {/* Item 4 */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1 bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
+                <div className="flex items-start mb-4">
+                  <CheckCircle className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Демонстрация результатов и фидбек</h3>
+                    <p className="text-gray-700">
+                      Покажите ваши результаты на финальной встрече с экспертами. Получите качественную обратную связь и
+                      рекомендации по дальнейшему развитию в области AI-решений.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start mb-4">
-                <CheckCircle className="h-6 w-6 text-indigo-600 mr-3 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Демонстрация результатов и фидбек</h3>
-                  <p className="text-gray-700">
-                    Покажите ваши результаты на финальной встрече с экспертами. Получите качественную обратную связь и рекомендации по дальнейшему развитию в области AI-решений.
-                  </p>
-                </div>
+              <div className="order-1 md:order-2 bg-gray-200 rounded-lg aspect-video overflow-hidden">
+                {/* Placeholder for image */}
+                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 4</div> */}
+                <Image src="/5.webp" alt="4" className="w-full h-full object-cover" width={1000} height={1000} />
               </div>
             </div>
           </div>
@@ -327,7 +366,9 @@ agent = RetrievalQA.from_chain_type(
                 <AccordionTrigger className="text-xl font-semibold">Современные AI инструменты</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-gray-700 mb-4">
-                    Изучите основные базовые AI инструменты, которые ускорят ваше программирование в десятки раз. Научитесь пользоваться профессиональными IDE с интегрированными LLM. Проведите полный цикл разработки от создания требований до делоя через AI.
+                    Изучите основные базовые AI инструменты, которые ускорят ваше программирование в десятки раз.
+                    Научитесь пользоваться профессиональными IDE с интегрированными LLM. Проведите полный цикл
+                    разработки от создания требований до делоя через AI.
                   </p>
                   <div className="space-y-2 mt-4">
                     <div className="flex items-center">
@@ -418,11 +459,22 @@ agent = RetrievalQA.from_chain_type(
           </div>
 
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Настроите RAG на свой существующий проект и автоматизируете свою работу с помощью AI-агентов. Вы научитесь
-              мыслить на языке искусственного интеллекта, освоите актуальные инструменты для подключения AI через API и
-              получите готовые промты, пресеты и шаблоны для дальнейшей автоматизации.
-            </p>
+            <div className="space-y-4">
+              <p className="text-gray-700 text-lg leading-relaxed">
+                По окончании интенсива вы получите сертификат, подтверждающий ваши навыки AI-инженера. Вы сможете
+                настраивать RAG на свои проекты и автоматизировать работу с помощью AI-агентов.
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Вы научитесь мыслить на языке искусственного интеллекта, администрировать AI-системы и интегрировать их
+                в свои рабочие процессы. Освоите актуальные инструменты для подключения AI через API и получите готовые
+                промты, пресеты и шаблоны для дальнейшей автоматизации.
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed font-medium">
+                Профессия промпт-инженера сегодня одна из самых востребованных на рынке труда, но квалифицированных
+                специалистов в этой области критически не хватает. Этот интенсив даст вам преимущество на рынке и
+                откроет новые карьерные возможности.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -433,17 +485,16 @@ agent = RetrievalQA.from_chain_type(
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold mb-6">Стоимость курса: 55 000 ₽</h2>
-              <Button
-                size="lg"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white"
-                onClick={() => setIsModalOpen(true)}
-              >
-                Хочу на интенсив
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6">
+                Купить интенсив
               </Button>
             </div>
 
             <div className="mt-16 bg-gray-50 p-8 rounded-lg shadow-sm">
-              <h3 className="text-2xl font-bold mb-6 text-center">Регистрация на интенсив</h3>
+              <h3 className="text-2xl font-bold mb-6 text-center">Остались вопросы?</h3>
+              <p className="text-center text-gray-700 mb-6">
+                Заполните форму, и мы свяжемся с вами, чтобы ответить на все ваши вопросы
+              </p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -506,7 +557,7 @@ agent = RetrievalQA.from_chain_type(
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={!isFormValid}>
-                  Зарегистрироваться
+                  Задать вопрос
                 </Button>
               </form>
             </div>
@@ -681,7 +732,7 @@ function ExpertCard({
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <div className="aspect-square overflow-hidden">
-        <img src={imageSrc || "/placeholder.svg"} alt={name} className="w-full h-full object-cover" />
+        <img src={imageSrc || "/placeholder.svg"} alt={name} className="w-full h-full object-cover object-top" />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1">{name}</h3>
