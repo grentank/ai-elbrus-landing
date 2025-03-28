@@ -61,7 +61,7 @@ const inputs = [
   { name: "amount", value: coursePrice },
   { name: "order", value: Math.random().toString(16).substring(2, 8) },
   { name: "description", value: "Оплата курса AI-инженер" },
-  { name: "name", value: "" },
+  // { name: "name", value: "" },
   { name: "email", value: "" },
   { name: "phone", value: "" },
 ];
@@ -208,8 +208,8 @@ export default function LandingPage() {
     });
     TPF.email.value = formData.email;
     TPF.phone.value = formData.phone;
-    (TPF.querySelector('[name="name"]') as HTMLInputElement).value =
-      formData.fullName;
+    // (TPF.querySelector('[name="name"]') as HTMLInputElement).value =
+    //   formData.fullName;
 
     window.pay?.(TPF);
   };
@@ -920,6 +920,14 @@ export default function LandingPage() {
                         disabled
                       />
                     ))}
+                    <input
+                      key="name"
+                      type="hidden"
+                      name="name"
+                      required
+                      disabled
+                      value={formData.fullName}
+                    />
                     <Button
                       className="w-full bg-green-600 hover:bg-green-700 text-white py-6 text-lg flex items-center justify-center gap-2"
                       disabled={!isFormValid}
