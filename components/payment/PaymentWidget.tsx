@@ -1,43 +1,44 @@
 "use client";
 
 import Script from "next/script";
+import React from "react";
 import "./payment.css";
 
 export default function PaymentWidget() {
+  const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    const TPF = e.currentTarget;
+    const { description, amount, email, phone, receipt } = TPF;
+
+    // if (receipt) {
+    //   if (!email.value && !phone.value)
+    //     return alert("Поле E-mail или Phone не должно быть пустым");
+
+    TPF.receipt.value = JSON.stringify({
+      EmailCompany: "mail@mail.com",
+      Taxation: "patent",
+      FfdVersion: "1.2",
+      Items: [
+        {
+          Name: description.value || "Оплата курса Продвинутый AI-инженер",
+          Price: Math.round(amount.value * 100),
+          Quantity: 1.0,
+          Amount: Math.round(amount.value * 100),
+          PaymentMethod: "full_prepayment",
+          PaymentObject: "service",
+          Tax: "none",
+          MeasurementUnit: "pc",
+        },
+      ],
+    });
+    // }
+    window.pay?.(TPF);
+  };
   return (
     <>
       <Script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js" />
-      <h1>Оплата курса Продвинутый AI-инженер</h1>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const TPF = e.currentTarget;
-          const { description, amount, email, phone, receipt } = TPF;
-
-          if (receipt) {
-            if (!email.value && !phone.value)
-              return alert("Поле E-mail или Phone не должно быть пустым");
-
-            TPF.receipt.value = JSON.stringify({
-              EmailCompany: "mail@mail.com",
-              Taxation: "patent",
-              FfdVersion: "1.2",
-              Items: [
-                {
-                  Name: description.value || "Оплата курса Продвинутый AI-инженер",
-                  Price: Math.round(amount.value * 100),
-                  Quantity: 1.0,
-                  Amount: Math.round(amount.value * 100),
-                  PaymentMethod: "full_prepayment",
-                  PaymentObject: "service",
-                  Tax: "none",
-                  MeasurementUnit: "pc",
-                },
-              ],
-            });
-          }
-          window.pay?.(TPF);
-        }}
+        onSubmit={onSubmit}
         className="payform-tbank"
         name="payform-tbank"
         id="payform-tbank"
@@ -73,7 +74,7 @@ export default function PaymentWidget() {
           name="amount"
           disabled
           required
-          value={5}
+          value={55000}
         />
         <input
           className="payform-tbank-row"
@@ -88,7 +89,7 @@ export default function PaymentWidget() {
           type="hidden"
           placeholder="Описание заказа"
           name="description"
-          value="Оплата курса Продвинутый AI-инженер"
+          value="Оплата курса AI-инженер"
         />
         <input
           className="payform-tbank-row"
