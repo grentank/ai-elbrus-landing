@@ -2,10 +2,8 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Dialog,
   DialogContent,
@@ -14,9 +12,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { CheckCircle, Code, Database, Zap, BookOpen, Users, Calendar } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { BookOpen, Calendar, CheckCircle, Code, Database, Users, Zap } from "lucide-react"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function LandingPage() {
   const [purchaseCount, setPurchaseCount] = useState(0)
@@ -658,7 +658,9 @@ agent = RetrievalQA.from_chain_type(
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold mb-6">Стоимость курса: 55 000 ₽</h2>
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6">
+              <Button onClick={() => {
+                window.location.href = '/payment';
+              }} size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6">
                 Купить интенсив
               </Button>
             </div>
