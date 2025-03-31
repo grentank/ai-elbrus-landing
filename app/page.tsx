@@ -70,25 +70,139 @@ const experts = [
     name: "Александр Князев",
     imageSrc:
       "https://getmentor.blob.core.windows.net/mentor-images/aleksandr-kniazev-3786/full",
-    role: "AI-архитектор",
+    role: "Ведущий эксперт",
     description:
-      "15 лет опыта в разработке. Специализируется на интеграции AI в корпоративные системы и оптимизации бизнес-процессов.",
+      "Выпускник мехмата МГУ. Выступал на конференциях Dump, CodeFest, MoscowJS, МУФ и SOC-Forum в сфере веб-резработки и кибербезопасности. 8 лет программирования на C++, Wolfram и Python, 5 лет на Javascript.",
   },
   {
     name: "Юрий Плисковский",
     imageSrc:
       "https://elbrusboot.camp/static/d0b6ef0d8f9828a6dc707fc64c721d11/c0321/pliskovskiy.jpg",
-    role: "ML-инженер",
+    role: "Ведущий эксперт",
     description:
-      "Эксперт по машинному обучению с опытом работы в крупных технологических компаниях. Специализируется на RAG-системах и векторных базах данных.",
+      "Директор по образованию в Эльбрус Буткемп. Организатор и ведущий образовательных проектов в области IT.",
   },
   {
     name: "Георгий Бабаян",
     imageSrc:
       "https://elbrusboot.camp/static/30d229c2aaef047f7d9a5c2116acd8db/c3f7f/babayan.jpg",
-    role: "Разработчик AI-агентов",
+    role: "CEO",
     description:
-      "Создал более 50 AI-агентов для автоматизации разработки. Консультант по внедрению AI-решений в стартапах и корпорациях.",
+      "Основатель Эльбрус Буткемп. Идейный вдохновитель и организатор образовательных проектов в области IT.",
+  },
+];
+const weeksData = [
+  {
+    title: "Неделя 1: Основы AI-инструментов и RAG",
+    value: "week-1",
+    days: [
+      {
+        title: "Понедельник: Обзор возможностей AI для разработки",
+        description:
+          "Знакомство с современными AI-инструментами, которые значительно ускоряют процесс разработки. Практическое применение AI IDE и чат-систем для решения реальных задач.",
+        points: [
+          "AI IDE: Cursor, Giga IDE, Windsurf, Github Copilot",
+          "Чат-системы: ChatGPT, DeepSeek, Grok и другие",
+          "Практические примеры использования AI для ускорения разработки",
+        ],
+      },
+      {
+        title: "Вторник: Подключение AI через API",
+        description:
+          "Изучение методов интеграции различных AI-моделей в собственные приложения через API. Практическая работа с российскими и международными провайдерами AI.",
+        points: [
+          "Работа с API: GigaChat, YandexGPT, OpenAI",
+          "Интеграция AI в собственные приложения",
+          "Обработка запросов и ответов от AI-моделей",
+        ],
+      },
+      {
+        title: "Среда: Автоматизация деплоя с помощью AI",
+        description:
+          "Освоение современных инструментов для автоматизации процесса деплоя приложений с использованием AI. Демонстрация полного цикла от разработки до публикации.",
+        points: [
+          "Платформы для AI-деплоя: v0, Lovable, Replit",
+          "Демонстрация процесса деплоя через чат-боты",
+          "Автоматизация CI/CD процессов с помощью AI",
+        ],
+      },
+      {
+        title: "Четверг: Основы RAG и векторные базы данных",
+        description:
+          "Введение в технологию Retrieval-Augmented Generation (RAG) и её применение для улучшения качества ответов AI. Создание и настройка векторных баз данных.",
+        points: [
+          "Принципы работы RAG и его преимущества",
+          "Создание векторной базы данных и эмбеддинг",
+          "Обзор инструментов: GigaChain Rag, GraphRAG, YandexGPT",
+        ],
+      },
+      {
+        title: "Пятница: Интеграция RAG с реальными данными",
+        description:
+          "Практическое применение RAG для работы с реальными данными из различных источников. Настройка интеграций с популярными сервисами и API.",
+        points: [
+          "Подключение к API Google Таблиц, Github",
+          "Настройка общения по API и интеграция в бизнес-процессы",
+          "Практический кейс: создание RAG-системы для корпоративных данных",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Неделя 2: Создание AI-агентов",
+    value: "week-2",
+    days: [
+      {
+        title: "Понедельник: Концепция AI-агентов",
+        description:
+          "Погружение в мир AI-агентов и их возможности для автоматизации рутинных задач разработки. Практическое создание первого агента для анализа кода.",
+        points: [
+          "Основные принципы работы AI-агентов",
+          "Работа с Langchain для создания агентов",
+          "Автоматический анализ кода и комментариев",
+        ],
+      },
+      {
+        title: "Вторник: Инструменты для сложных сценариев агентов",
+        description:
+          "Изучение продвинутых инструментов для создания комплексных AI-агентов с множеством функций. Построение агента с расширенными возможностями.",
+        points: [
+          "Обзор Travily: возможности и применение",
+          "Работа с LangGraph для создания сложных агентов",
+          "Практикум: построение комплексного агента",
+        ],
+      },
+      {
+        title: "Среда: Активные AI-агенты",
+        description:
+          "Трансформация пассивных агентов-наблюдателей в активных участников процесса разработки. Настройка автоматического выполнения действий и планирования.",
+        points: [
+          "Переход от наблюдения к действию",
+          "Планирование и реализация расписаний для агентов",
+          "Автоматзация принятия решений агентом",
+        ],
+      },
+      {
+        title: "Четверг: Агенты для написания кода",
+        description:
+          "Создание продвинутого AI-агента, способного самостоятельно писать код и взаимодействовать с системами контроля версий. Интеграция с CI/CD для автоматического тестирования.",
+        points: [
+          "Автоматизация написания кода с помощью AI",
+          "Интеграция с GitHub API и автоматизация коммитов",
+          "Настройка CI/CD для автоматического тестирования кода",
+        ],
+      },
+      {
+        title: "Пятница: Итоговый день и демонстрация проектов",
+        description:
+          "Завершение работы над AI-агентами, финальные доработки и презентация результатов. Обмен опытом и обсуждение дальнейших перспектив применения AI-агентов.",
+        points: [
+          "Доработка и оптимизация AI-агентов",
+          "Демонстрация достижений участниками",
+          "Обсуждение перспектив и дальнейшего развития",
+        ],
+      },
+    ],
   },
 ];
 
@@ -161,23 +275,52 @@ export default function LandingPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isFormValid) {
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData);
-      setIsSubmitted(true);
+      try {
+        const questionElement = document.getElementById(
+          "question"
+        ) as HTMLTextAreaElement;
+        const question = questionElement?.value || "";
 
-      // Reset form after submission
-      setTimeout(() => {
-        setIsModalOpen(false);
-        setIsSubmitted(false);
-        setFormData({
-          fullName: "",
-          phone: "",
-          email: "",
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            question,
+          }),
         });
-      }, 2000);
+
+        if (!response.ok) {
+          throw new Error("Failed to send message");
+        }
+
+        // Show success message
+        setIsSubmitted(true);
+
+        // Reset form after submission
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setIsSubmitted(false);
+          setFormData({
+            fullName: "",
+            phone: "",
+            email: "",
+          });
+          if (questionElement) {
+            questionElement.value = "";
+          }
+        }, 2000);
+      } catch (error) {
+        console.error("Error:", error);
+        alert(
+          "Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже."
+        );
+      }
     }
   };
 
@@ -494,306 +637,38 @@ export default function LandingPage() {
 
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full mb-8">
-              <AccordionItem value="week-1">
-                <AccordionTrigger className="text-2xl font-semibold">
-                  Неделя 1: Основы AI-инструментов и RAG
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-6 mt-4">
-                    {/* Monday */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Понедельник: Обзор возможностей AI для разработки
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Знакомство с современными AI-инструментами, которые
-                        значительно ускоряют процесс разработки. Практическое
-                        применение AI IDE и чат-систем для решения реальных
-                        задач.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            AI IDE: Cursor, Giga IDE, Windsurf, Github Copilot
+              {weeksData.map((week) => (
+                <AccordionItem key={week.value} value={week.value}>
+                  <AccordionTrigger className="text-2xl font-semibold">
+                    {week.title}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="space-y-6 mt-4">
+                      {week.days.map((day, index) => (
+                        <div
+                          key={index}
+                          className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm"
+                        >
+                          <h3 className="text-xl font-bold text-indigo-600 mb-2">
+                            {day.title}
+                          </h3>
+                          <p className="text-gray-700 mb-4">
+                            {day.description}
                           </p>
+                          <div className="space-y-2 mt-4">
+                            {day.points.map((point, i) => (
+                              <div key={i} className="flex items-center">
+                                <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
+                                <p>{point}</p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Чат-системы: ChatGPT, DeepSeek, Grok и другие</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Практические примеры использования AI для ускорения
-                            разработки
-                          </p>
-                        </div>
-                      </div>
+                      ))}
                     </div>
-
-                    {/* Tuesday */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Вторник: Подключение AI через API
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Изучение методов интеграции различных AI-моделей в
-                        собственные приложения через API. Практическая работа с
-                        российскими и международными провайдерами AI.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Работа с API: GigaChat, YandexGPT, OpenAI</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Интеграция AI в собственные приложения</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Обработка запросов и ответов от AI-моделей</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Wednesday */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Среда: Автоматизация деплоя с помощью AI
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Освоение современных инструментов для автоматизации
-                        процесса деплоя приложений с использованием AI.
-                        Демонстрация полного цикла от разработки до публикации.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Платформы для AI-деплоя: v0, Lovable, Replit</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Демонстрация процесса деплоя через чат-боты</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Автоматизация CI/CD процессов с помощью AI</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Thursday */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Четверг: Основы RAG и векторные базы данных
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Введение в технологию Retrieval-Augmented Generation
-                        (RAG) и её применение для улучшения качества ответов AI.
-                        Создание и настройка векторных баз данных.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Принципы работы RAG и его преимущества</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Создание векторной базы данных и эмбеддинг</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Обзор инструментов: GigaChain Rag, GraphRAG,
-                            YandexGPT
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Friday */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Пятница: Интеграция RAG с реальными данными
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Практическое применение RAG для работы с реальными
-                        данными из различных источников. Настройка интеграций с
-                        популярными сервисами и API.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Подключение к API Google Таблиц, Github</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Настройка общения по API и интеграция в
-                            бизнес-процессы
-                          </p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Практический кейс: создание RAG-системы для
-                            корпоративных данных
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="week-2">
-                <AccordionTrigger className="text-2xl font-semibold">
-                  Неделя 2: Создание AI-агентов
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-6 mt-4">
-                    {/* Monday - Day 6 */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Понедельник: Концепция AI-агентов
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Погружение в мир AI-агентов и их возможности для
-                        автоматизации рутинных задач разработки. Практическое
-                        создание первого агента для анализа кода.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Основные принципы работы AI-агентов</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Создание агента для проверки pull request'ов</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Автоматический анализ кода и комментариев</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Tuesday - Day 7 */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Вторник: Инструменты для сложных сценариев агентов
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Изучение продвинутых инструментов для создания
-                        комплексных AI-агентов с множеством функций. Построение
-                        агента с расширенными возможностями.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Обзор Travily: возможности и применение</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Работа с LangGraph для создания сложных агентов</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Практикум: построение комплексного агента</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Wednesday - Day 8 */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Среда: Активные AI-агенты
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Трансформация пассивных агентов-наблюдателей в активных
-                        участников процесса разработки. Настройка
-                        автоматического выполнения действий и планирования.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Переход от наблюдения к действию</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Планирование и реализация расписаний для агентов
-                          </p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Автоматизация принятия решений агентами</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Thursday - Day 9 */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Четверг: Агенты для написания кода
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Создание продвинутого AI-агента, способного
-                        самостоятельно писать код и взаимодействовать с
-                        системами контроля версий. Интеграция с CI/CD для
-                        автоматического тестирования.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Автоматизация написания кода с помощью AI</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Интеграция с GitHub API и автоматизация коммитов
-                          </p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>
-                            Настройка CI/CD для автоматического тестирования
-                            кода
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Friday - Day 10 */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                        Пятница: Итоговый день и демонстрация проектов
-                      </h3>
-                      <p className="text-gray-700 mb-4">
-                        Завершение работы над AI-агентами, финальные доработки и
-                        презентация результатов. Обмен опытом и обсуждение
-                        дальнейших перспектив применения AI-агентов.
-                      </p>
-                      <div className="space-y-2 mt-4">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Доработка и оптимизация AI-агентов</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Демонстрация достижений участниками</p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                          <p>Обсуждение перспектив и дальнейшего развития</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </div>
@@ -809,22 +684,24 @@ export default function LandingPage() {
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <div className="space-y-4">
               <p className="text-gray-700 text-lg leading-relaxed">
-                По окончании интенсива вы получите сертификат, подтверждающий
-                ваши навыки AI-инженера. Вы сможете настраивать RAG на свои
-                проекты и автоматизировать работу с помощью AI-агентов.
+                <strong>
+                  После интенсива вы получите сертификат, подтверждающий ваши
+                  навыки AI-инженера.
+                </strong>&nbsp;
+                Вы сможете настраивать RAG на свои проекты, автоматизировать
+                задачи с помощью AI-агентов и интегрировать передовые решения в
+                рабочие процессы.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Вы научитесь мыслить на языке искусственного интеллекта,
-                администрировать AI-системы и интегрировать их в свои рабочие
-                процессы. Освоите актуальные инструменты для подключения AI
-                через API и получите готовые промты, пресеты и шаблоны для
-                дальнейшей автоматизации.
+                Специалисты по AI-агентам — профессия будущего. Сейчас таких
+                экспертов в России почти нет, но спрос на них стремительно
+                растёт. Многие компании хотят оптимизировать процессы за счёт
+                AI, и вы станете одним из первых специалистов в этой
+                развивающейся сфере.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed font-medium">
-                Профессия промпт-инженера сегодня одна из самых востребованных
-                на рынке труда, но квалифицированных специалистов в этой области
-                критически не хватает. Этот интенсив даст вам преимущество на
-                рынке и откроет новые карьерные возможности.
+                Этот интенсив даст вам преимущество на рынке и откроет новые
+                карьерные возможности.
               </p>
             </div>
           </div>
