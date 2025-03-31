@@ -687,10 +687,10 @@ export default function LandingPage() {
                 <strong>
                   После интенсива вы получите сертификат, подтверждающий ваши
                   навыки AI-инженера.
-                </strong>&nbsp;
-                Вы сможете настраивать RAG на свои проекты, автоматизировать
-                задачи с помощью AI-агентов и интегрировать передовые решения в
-                рабочие процессы.
+                </strong>
+                &nbsp; Вы сможете настраивать RAG на свои проекты,
+                автоматизировать задачи с помощью AI-агентов и интегрировать
+                передовые решения в рабочие процессы.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 Специалисты по AI-агентам — профессия будущего. Сейчас таких
@@ -970,10 +970,18 @@ export default function LandingPage() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:info@ai-course.com"
+                    href="mailto:info@elbrusboot.camp"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    info@ai-course.com
+                    info@elbrusboot.camp
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/elbrus_bootcamp"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Чат в Telegram
                   </a>
                 </li>
                 <li>
@@ -981,7 +989,15 @@ export default function LandingPage() {
                     href="tel:+78001234567"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    +7 (800) 123-45-67
+                    +7 (499) 938-68-24
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/place/Elbrus+Coding+Bootcamp+%7C+%D0%A8%D0%BA%D0%BE%D0%BB%D0%B0+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F+%D0%94%D0%BE%D0%BD%D1%81%D0%BA%D0%BE%D0%B9+%D1%80%D0%B0%D0%B9%D0%BE%D0%BD/@55.7065807,37.5926111,16.25z/data=!4m13!1m6!3m5!1s0x46b54bbba5624251:0x42cefa28cf581f67!2zRWxicnVzIENvZGluZyBCb290Y2FtcCB8INCo0LrQvtC70LAg0L_RgNC-0LPRgNCw0LzQvNC40YDQvtCy0LDQvdC40Y8g0JTQvtC90YHQutC-0Lkg0YDQsNC50L7QvQ!8m2!3d55.706541!4d37.5970071!3m5!1s0x46b54bbba5624251:0x42cefa28cf581f67!8m2!3d55.706541!4d37.5970071!15sChZFbGJydXMgQ29kaW5nIEJvb3RjYW1wWjAKFmVsYnJ1cyBjb2RpbmcgYm9vdGNhbXAiFmVsYnJ1cyBjb2RpbmcgYm9vdGNhbXCSARBlZHVjYXRpb25fY2VudGVy"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Москва, ул. Орджоникидзе, 11 стр. 10 (м. Ленинский проспект)
                   </a>
                 </li>
               </ul>
@@ -991,25 +1007,49 @@ export default function LandingPage() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="https://elbrusboot.camp/docs/confidentiality_agreement.pdf"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Политика конфиденциальности
+                    Политика обработки персональных данных
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://elbrusboot.camp/docs/end_user_license_agreement.pdf"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Условия использования
+                    Пользовательское соглашение
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://elbrusboot.camp/contract_agreements/"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Договор оферта
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://tt.elbrusboot.camp/services"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Об образовательной организации
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://elbrusboot.camp/docs/edu_license.pdf"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Государственная лицензия
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2025 Продвинутый AI-инженер. Все права защищены.</p>
+            <p>© 2025 ООО "Эльбрус Буткемп". Все права защищены.</p>
           </div>
         </div>
       </footer>
