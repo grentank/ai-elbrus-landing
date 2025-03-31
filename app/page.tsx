@@ -54,7 +54,7 @@ agent = RetrievalQA.from_chain_type(
   retriever=vectorstore.as_retriever()
 )`;
 const inputs = [
-  { name: "terminalkey", value: "1743087532455DEMO" },
+  { name: "terminalkey", value: "1743087532478" },
   { name: "frame", value: "false" },
   { name: "language", value: "ru" },
   { name: "receipt", value: "" },
