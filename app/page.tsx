@@ -331,6 +331,7 @@ export default function LandingPage() {
   const handlePayment: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const TPF = e.currentTarget;
+    // const formObj = new FormData(TPF);
     TPF.receipt.value = JSON.stringify({
       // проверить данные компании для чека!
       EmailCompany: "bills@elbrusboot.camp",
@@ -351,6 +352,7 @@ export default function LandingPage() {
     });
     TPF.email.value = formData.email;
     TPF.phone.value = formData.phone;
+    // console.log(TPF, Object.fromEntries(formObj));
     // (TPF.querySelector('[name="name"]') as HTMLInputElement).value =
     //   formData.fullName;
 
@@ -806,6 +808,7 @@ export default function LandingPage() {
                       value={formData.fullName}
                     />
                     <Button
+                      type="submit"
                       className="w-full bg-green-600 hover:bg-green-700 text-white py-6 text-lg flex items-center justify-center gap-2"
                       disabled={!isFormValid}
                     >
