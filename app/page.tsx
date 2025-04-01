@@ -34,7 +34,7 @@ import Image from "next/image";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
-const coursePrice = 55000;
+const coursePrice = 50;
 const codeBlock = `from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
