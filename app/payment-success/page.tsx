@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CheckCircle, Download, MessageCircle } from "lucide-react";
+import { CheckCircle, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function PaymentSuccessPage() {
@@ -63,7 +63,7 @@ export default function PaymentSuccessPage() {
           </Card>
 
           {/* Materials Card */}
-          <Card className="border-indigo-200 shadow-md">
+          {/* <Card className="border-indigo-200 shadow-md">
             <CardHeader className="bg-indigo-50">
               <CardTitle className="flex items-center gap-2">
                 <Download className="h-6 w-6 text-indigo-600" />
@@ -89,7 +89,7 @@ export default function PaymentSuccessPage() {
                 </Link>
               </Button>
             </CardFooter>
-          </Card>
+          </Card> */}
 
           {/* Return to Home */}
           <div className="text-center mt-12">
