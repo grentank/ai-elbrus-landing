@@ -533,8 +533,10 @@ export default function LandingPage() {
                       10 интенсивных дней
                     </h3>
                     <p className="text-gray-700">
-                      На лекциях вы получите теоретическую базу и разберёте
-                      бизнес-кейсы по интеграции RAG и созданию AI-агентов.
+                      Онлайн встречи с понедельника по пятницу в 19:00 на 2 часа
+                      в течение двух недель. На лекциях вы получите
+                      теоретическую базу и разберёте бизнес-кейсы по интеграции
+                      RAG и созданию AI-агентов.
                     </p>
                   </div>
                 </div>
@@ -551,7 +553,7 @@ export default function LandingPage() {
                       Презентации с первоклассными материалами
                     </h3>
                     <p className="text-gray-700">
-                      Вс самое важное про курс и не только! Пошаговые
+                      Всё самое важное про курс и не только! Пошаговые
                       инструкции, требуемые пакеты и даже готовые промты - все
                       эти материалы будут ваши.
                     </p>
@@ -611,8 +613,7 @@ export default function LandingPage() {
                     <p className="text-gray-700">
                       Покажите ваши результаты на финальной встрече с
                       экспертами. Получите качественную обратную связь и
-                      рекомендации по дальнейшему развитию в области
-                      AI-реше��ий.
+                      рекомендации по дальнейшему развитию в области AI-решений.
                     </p>
                   </div>
                 </div>
@@ -816,9 +817,23 @@ export default function LandingPage() {
                       type="submit"
                       className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-6 text-lg flex items-center justify-center gap-2"
                       onClick={(e) => {
-                        if(formData.fullName === '') setFormErrors(e => ({...e, fullName: "Ф.И.О. должно содержать минимум 3 символа"}));
-                        if(formData.email === '') setFormErrors(e => ({...e, email: "Пожалуйста, введите корректный email"}));
-                        if(formData.phone === '') setFormErrors(e => ({...e, phone: "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр"}));
+                        if (formData.fullName === "")
+                          setFormErrors((e) => ({
+                            ...e,
+                            fullName:
+                              "Ф.И.О. должно содержать минимум 3 символа",
+                          }));
+                        if (formData.email === "")
+                          setFormErrors((e) => ({
+                            ...e,
+                            email: "Пожалуйста, введите корректный email",
+                          }));
+                        if (formData.phone === "")
+                          setFormErrors((e) => ({
+                            ...e,
+                            phone:
+                              "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр",
+                          }));
                         if (!isFormValid) {
                           e.preventDefault();
                           // Scroll to the first error field
