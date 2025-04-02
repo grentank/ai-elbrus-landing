@@ -245,7 +245,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           {/* Logo */}
           <div className="flex justify-start mb-8">
-            <div className="w-40 h-12 bg-white/10 rounded-md flex items-center justify-center">
+            <div className="w-40 h-12 bg-white/90 rounded-md flex items-center justify-center">
               <img
                 src="/logos/elbrus.svg"
                 alt="Elbrus Logo"
