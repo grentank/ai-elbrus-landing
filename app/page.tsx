@@ -2,6 +2,7 @@
 
 import type React from "react";
 
+import { TechLogos } from "@/components/tech-logos";
 import {
   Accordion,
   AccordionContent,
@@ -54,7 +55,7 @@ agent = RetrievalQA.from_chain_type(
   retriever=vectorstore.as_retriever()
 )`;
 const inputs = [
-  { name: "terminalkey", value: "1743087532478" },
+  { name: "terminalkey", value: "1743087532455DEMO" },
   { name: "frame", value: "false" },
   { name: "language", value: "ru" },
   { name: "receipt", value: "" },
@@ -167,7 +168,7 @@ const weeksData = [
         description:
           "Изучение продвинутых инструментов для создания комплексных AI-агентов с множеством функций. Построение агента с расширенными возможностями.",
         points: [
-          "Обзор Travily: возможности и применение",
+          "Обзор Tavily: возможности и применение",
           "Работа с LangGraph для создания сложных агентов",
           "Практикум: построение комплексного агента",
         ],
@@ -224,9 +225,7 @@ export default function LandingPage() {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const paymentSectionRef = useRef<HTMLDivElement>(null);
-
-  // Validate form
-  useEffect(() => {
+  const validateForm = () => {
     const { fullName, phone, email } = formData;
     const errors = {
       fullName: "",
@@ -252,9 +251,9 @@ export default function LandingPage() {
     }
 
     // Validate phone
-    const phoneRegex = /^\+7\d{10}$/;
+    const phoneRegex = /^(\+7|7|8)(\d{10})$/;
     if (phone.trim().length > 0 && !phoneRegex.test(phone)) {
-      errors.phone = "Телефон должен быть в формате +7XXXXXXXXXX";
+      errors.phone = "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр";
     }
 
     setFormErrors(errors);
@@ -268,7 +267,9 @@ export default function LandingPage() {
         !errors.email &&
         !errors.phone
     );
-  }, [formData]);
+  };
+  // Validate form
+  useEffect(validateForm, [formData]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -331,7 +332,6 @@ export default function LandingPage() {
   const handlePayment: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const TPF = e.currentTarget;
-    // const formObj = new FormData(TPF);
     TPF.receipt.value = JSON.stringify({
       // проверить данные компании для чека!
       EmailCompany: "bills@elbrusboot.camp",
@@ -339,7 +339,7 @@ export default function LandingPage() {
       FfdVersion: "1.2",
       Items: [
         {
-          Name: "Оплата курса AI-инженер",
+          Name: "Оплата курса по AI для разработчиков",
           Price: Math.round(coursePrice * 100),
           Quantity: 1.0,
           Amount: Math.round(coursePrice * 100),
@@ -352,7 +352,6 @@ export default function LandingPage() {
     });
     TPF.email.value = formData.email;
     TPF.phone.value = formData.phone;
-    // console.log(TPF, Object.fromEntries(formObj));
     // (TPF.querySelector('[name="name"]') as HTMLInputElement).value =
     //   formData.fullName;
 
@@ -369,7 +368,7 @@ export default function LandingPage() {
                 Онлайн-интенсив
               </div>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                Продвинутый AI-инженер
+                Курс по AI для разработчиков
               </h1>
               <p className="text-lg md:text-xl text-white/90">
                 Освойте интеграцию RAG в свои проекты и научитесь создавать
@@ -384,15 +383,15 @@ export default function LandingPage() {
                 >
                   Купить курс
                 </Button>
-                <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                  <span className="text-sm">middle</span>
-                  {/*<span className="font-bold">{purchaseCount}</span>
-                  <span className="text-sm">человек</span>*/}
-                </div>
-                <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                  <span className="text-sm">middle+</span>
-                  {/*<span className="font-bold">{purchaseCount}</span>
-                  <span className="text-sm">человек</span>*/}
+                <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                  <div className="inline-flex items-center gap-1.5">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span className="text-sm font-medium">middle</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <span className="text-sm font-medium">middle+</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -437,6 +436,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Tech Logos Section */}
+      <TechLogos />
 
       {/* Who is this for Section */}
       <section className="py-20 bg-gray-50">
@@ -609,7 +611,8 @@ export default function LandingPage() {
                     <p className="text-gray-700">
                       Покажите ваши результаты на финальной встрече с
                       экспертами. Получите качественную обратную связь и
-                      рекомендации по дальнейшему развитию в области AI-решений.
+                      рекомендации по дальнейшему развитию в области
+                      AI-реше��ий.
                     </p>
                   </div>
                 </div>
@@ -718,7 +721,9 @@ export default function LandingPage() {
               {/* Left side - Payment form */}
               <div className="p-8 border-r border-gray-200">
                 <h2 className="text-3xl font-bold mb-2">Оплата</h2>
-                <p className="text-gray-600 mb-6">Направление: AI-инженер</p>
+                <p className="text-gray-600 mb-6">
+                  Курс по AI для разработчиков
+                </p>
 
                 <div className="mt-8">
                   <h3 className="text-xl font-semibold mb-4">
@@ -809,8 +814,24 @@ export default function LandingPage() {
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white py-6 text-lg flex items-center justify-center gap-2"
-                      disabled={!isFormValid}
+                      className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-6 text-lg flex items-center justify-center gap-2"
+                      onClick={(e) => {
+                        if(formData.fullName === '') setFormErrors(e => ({...e, fullName: "Ф.И.О. должно содержать минимум 3 символа"}));
+                        if(formData.email === '') setFormErrors(e => ({...e, email: "Пожалуйста, введите корректный email"}));
+                        if(formData.phone === '') setFormErrors(e => ({...e, phone: "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр"}));
+                        if (!isFormValid) {
+                          e.preventDefault();
+                          // Scroll to the first error field
+                          const firstErrorField =
+                            document.querySelector(".border-red-500");
+                          if (firstErrorField) {
+                            firstErrorField.scrollIntoView({
+                              behavior: "smooth",
+                              block: "center",
+                            });
+                          }
+                        }
+                      }}
                     >
                       <CreditCard className="h-5 w-5" />
                       Картой онлайн
@@ -934,7 +955,9 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Продвинутый AI-инженер</h3>
+              <h3 className="text-xl font-bold mb-4">
+                Курс по AI для разработчиков
+              </h3>
               <p className="text-gray-400">
                 Интенсив по интеграции RAG и созданию AI-агентов
               </p>
