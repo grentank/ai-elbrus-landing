@@ -2,13 +2,10 @@
 
 import type React from "react";
 
+import Footer from "@/components/footer";
+import HowTrainingWorks from "@/components/how-training-works";
+import Programm from "@/components/programm";
 import { TechLogos } from "@/components/tech-logos";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -21,17 +18,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  BookOpen,
   Calendar,
   CheckCircle,
+  Clock,
   Code,
   CreditCard,
   Database,
   HelpCircle,
-  Users,
   Zap,
 } from "lucide-react";
-import Image from "next/image";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
@@ -87,123 +82,9 @@ const experts = [
     name: "Георгий Бабаян",
     imageSrc:
       "https://elbrusboot.camp/static/30d229c2aaef047f7d9a5c2116acd8db/c3f7f/babayan.jpg",
-    role: "CEO",
+    role: "CEO & Основатель Elbrus Bootcamp",
     description:
-      "Основатель Эльбрус Буткемп. Идейный вдохновитель и организатор образовательных проектов в области IT.",
-  },
-];
-const weeksData = [
-  {
-    title: "Неделя 1: Основы AI-инструментов и RAG",
-    value: "week-1",
-    days: [
-      {
-        title: "Понедельник: Обзор возможностей AI для разработки",
-        description:
-          "Знакомство с современными AI-инструментами, которые значительно ускоряют процесс разработки. Практическое применение AI IDE и чат-систем для решения реальных задач.",
-        points: [
-          "AI IDE: Cursor, Giga IDE, Windsurf, Github Copilot",
-          "Чат-системы: ChatGPT, DeepSeek, Grok и другие",
-          "Практические примеры использования AI для ускорения разработки",
-        ],
-      },
-      {
-        title: "Вторник: Подключение AI через API",
-        description:
-          "Изучение методов интеграции различных AI-моделей в собственные приложения через API. Практическая работа с российскими и международными провайдерами AI.",
-        points: [
-          "Работа с API: GigaChat, YandexGPT, OpenAI",
-          "Интеграция AI в собственные приложения",
-          "Обработка запросов и ответов от AI-моделей",
-        ],
-      },
-      {
-        title: "Среда: Автоматизация деплоя с помощью AI",
-        description:
-          "Освоение современных инструментов для автоматизации процесса деплоя приложений с использованием AI. Демонстрация полного цикла от разработки до публикации.",
-        points: [
-          "Платформы для AI-деплоя: v0, Lovable, Replit",
-          "Демонстрация процесса деплоя через чат-боты",
-          "Автоматизация CI/CD процессов с помощью AI",
-        ],
-      },
-      {
-        title: "Четверг: Основы RAG и векторные базы данных",
-        description:
-          "Введение в технологию Retrieval-Augmented Generation (RAG) и её применение для улучшения качества ответов AI. Создание и настройка векторных баз данных.",
-        points: [
-          "Принципы работы RAG и его преимущества",
-          "Создание векторной базы данных и эмбеддинг",
-          "Обзор инструментов: GigaChain Rag, GraphRAG, YandexGPT",
-        ],
-      },
-      {
-        title: "Пятница: Интеграция RAG с реальными данными",
-        description:
-          "Практическое применение RAG для работы с реальными данными из различных источников. Настройка интеграций с популярными сервисами и API.",
-        points: [
-          "Подключение к API Google Таблиц, Github",
-          "Настройка общения по API и интеграция в бизнес-процессы",
-          "Практический кейс: создание RAG-системы для корпоративных данных",
-        ],
-      },
-    ],
-  },
-  {
-    title: "Неделя 2: Создание AI-агентов",
-    value: "week-2",
-    days: [
-      {
-        title: "Понедельник: Концепция AI-агентов",
-        description:
-          "Погружение в мир AI-агентов и их возможности для автоматизации рутинных задач разработки. Практическое создание первого агента для анализа кода.",
-        points: [
-          "Основные принципы работы AI-агентов",
-          "Работа с Langchain для создания агентов",
-          "Автоматический анализ кода и комментариев",
-        ],
-      },
-      {
-        title: "Вторник: Инструменты для сложных сценариев агентов",
-        description:
-          "Изучение продвинутых инструментов для создания комплексных AI-агентов с множеством функций. Построение агента с расширенными возможностями.",
-        points: [
-          "Обзор Tavily: возможности и применение",
-          "Работа с LangGraph для создания сложных агентов",
-          "Практикум: построение комплексного агента",
-        ],
-      },
-      {
-        title: "Среда: Активные AI-агенты",
-        description:
-          "Трансформация пассивных агентов-наблюдателей в активных участников процесса разработки. Настройка автоматического выполнения действий и планирования.",
-        points: [
-          "Переход от наблюдения к действию",
-          "Планирование и реализация расписаний для агентов",
-          "Автоматзация принятия решений агентом",
-        ],
-      },
-      {
-        title: "Четверг: Агенты для написания кода",
-        description:
-          "Создание продвинутого AI-агента, способного самостоятельно писать код и взаимодействовать с системами контроля версий. Интеграция с CI/CD для автоматического тестирования.",
-        points: [
-          "Автоматизация написания кода с помощью AI",
-          "Интеграция с GitHub API и автоматизация коммитов",
-          "Настройка CI/CD для автоматического тестирования кода",
-        ],
-      },
-      {
-        title: "Пятница: Итоговый день и демонстрация проектов",
-        description:
-          "Завершение работы над AI-агентами, финальные доработки и презентация результатов. Обмен опытом и обсуждение дальнейших перспектив применения AI-агентов.",
-        points: [
-          "Доработка и оптимизация AI-агентов",
-          "Демонстрация достижений участниками",
-          "Обсуждение перспектив и дальнейшего развития",
-        ],
-      },
-    ],
+      "10 лет в IT-образовании и запуске EdTech-проектов\nОсновал Elbrus Bootcamp — одну из крупнейших школ программирования в России (2000+ выпускников)  \nРазвивает собственную AI-школу с фокусом на практические навыки и карьерные результаты  \nРуководил командами в 50+ человек, создавал и масштабировал образовательные продукты  \nРаботал с партнёрами из IT и HR-сферы: Сбер, Тинькофф, Selectel \nРегулярно выступает на конференциях по технологиям, образованию и управлению командами",
   },
 ];
 
@@ -362,6 +243,17 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-600 to-purple-600 py-20 text-white">
         <div className="container mx-auto px-4">
+          {/* Logo */}
+          <div className="flex justify-start mb-8">
+            <div className="w-40 h-12 bg-white/10 rounded-md flex items-center justify-center">
+              <img
+                src="/logos/elbrus.svg"
+                alt="Elbrus Logo"
+                className="h-8 w-auto"
+              />
+            </div>
+          </div>
+
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="space-y-6">
               <div className="inline-block rounded-lg bg-white/10 px-3 py-1 text-sm backdrop-blur-sm">
@@ -395,7 +287,14 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block">
+            <div className="relative">
+              <div className="absolute -top-16 -right-8 w-70 h-60 rounded-lg overflow-hidden shadow-xl z-10 rotate-6 border-4 border-white/20">
+                <img
+                  src="/zoom.png"
+                  alt="Zoom webinar"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="relative">
                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 opacity-75 blur"></div>
                 <div className="relative rounded-lg bg-black p-6">
@@ -505,134 +404,7 @@ export default function LandingPage() {
       </section>
 
       {/* How Training Works Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Как проходит обучение</h2>
-          </div>
-
-          <div className="space-y-12">
-            {/* Item 1 */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-gray-200 rounded-lg aspect-video overflow-hidden">
-                {/* Placeholder for image */}
-                <Image
-                  src="/1.jpg"
-                  alt="1"
-                  className="w-full h-full object-cover"
-                  width={1000}
-                  height={1000}
-                />
-                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 1</div> */}
-              </div>
-              <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex items-start mb-4">
-                  <Calendar className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">
-                      10 интенсивных дней
-                    </h3>
-                    <p className="text-gray-700">
-                      Онлайн встречи с понедельника по пятницу в 19:00 на 2 часа
-                      в течение двух недель. На лекциях вы получите
-                      теоретическую базу и разберёте бизнес-кейсы по интеграции
-                      RAG и созданию AI-агентов.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Item 2 */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex items-start mb-4">
-                  <BookOpen className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">
-                      Презентации с первоклассными материалами
-                    </h3>
-                    <p className="text-gray-700">
-                      Всё самое важное про курс и не только! Пошаговые
-                      инструкции, требуемые пакеты и даже готовые промты - все
-                      эти материалы будут ваши.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="order-1 md:order-2 bg-gray-200 rounded-lg aspect-video overflow-hidden">
-                {/* Placeholder for image */}
-                <img
-                  src="/2.jpg"
-                  alt="2"
-                  className="w-full h-full object-cover"
-                />
-                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 2</div> */}
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-gray-200 rounded-lg aspect-video overflow-hidden">
-                {/* Placeholder for image */}
-                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 3</div> */}
-                <Image
-                  src="/4.webp"
-                  alt="3"
-                  className="w-full h-full object-cover"
-                  width={1000}
-                  height={1000}
-                />
-              </div>
-              <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex items-start mb-4">
-                  <Users className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">
-                      Общение и коммьюнити
-                    </h3>
-                    <p className="text-gray-700">
-                      Живое общение на лекции, чат-комнаты с коллегами и
-                      практические сессии позволят быстрее осваивать самые
-                      передовые инструменты.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex items-start mb-4">
-                  <CheckCircle className="h-20 w-20 text-indigo-600 mr-3 mt-1" />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">
-                      Демонстрация результатов и фидбек
-                    </h3>
-                    <p className="text-gray-700">
-                      Покажите ваши результаты на финальной встрече с
-                      экспертами. Получите качественную обратную связь и
-                      рекомендации по дальнейшему развитию в области AI-решений.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="order-1 md:order-2 bg-gray-200 rounded-lg aspect-video overflow-hidden">
-                {/* Placeholder for image */}
-                {/* <div className="w-full h-full flex items-center justify-center text-gray-500">Изображение 4</div> */}
-                <Image
-                  src="/5.webp"
-                  alt="4"
-                  className="w-full h-full object-cover"
-                  width={1000}
-                  height={1000}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HowTrainingWorks />
 
       {/* Program Section */}
       <section className="py-20">
@@ -641,42 +413,7 @@ export default function LandingPage() {
             <h2 className="text-3xl font-bold mb-4">Программа интенсива</h2>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="w-full mb-8">
-              {weeksData.map((week) => (
-                <AccordionItem key={week.value} value={week.value}>
-                  <AccordionTrigger className="text-2xl font-semibold">
-                    {week.title}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-6 mt-4">
-                      {week.days.map((day, index) => (
-                        <div
-                          key={index}
-                          className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm"
-                        >
-                          <h3 className="text-xl font-bold text-indigo-600 mb-2">
-                            {day.title}
-                          </h3>
-                          <p className="text-gray-700 mb-4">
-                            {day.description}
-                          </p>
-                          <div className="space-y-2 mt-4">
-                            {day.points.map((point, i) => (
-                              <div key={i} className="flex items-center">
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
-                                <p>{point}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+          <Programm />
         </div>
       </section>
 
@@ -789,8 +526,62 @@ export default function LandingPage() {
 
               {/* Right side - Payment summary */}
               <div className="bg-gray-50 p-8 flex flex-col">
-                <h3 className="text-xl font-semibold mb-2">Итого</h3>
-                <p className="text-4xl font-bold mb-8">55 000 ₽</p>
+                <div className="mb-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-semibold">Итого</h3>
+                    <div className="flex flex-col items-end">
+                      <span className="text-sm text-gray-500 line-through">
+                        109 500 ₽
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-4xl font-bold">55 000 ₽</span>
+                        <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                          -50%
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Скидка 50% для первых 15 участников
+                  </p>
+                </div>
+
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="h-3 w-3 text-indigo-600" />
+                    </div>
+                    <p className="text-sm">Живые лекции с менторами курса</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="h-3 w-3 text-indigo-600" />
+                    </div>
+                    <p className="text-sm">
+                      Закрытое сообщество в Telegram с действующими
+                      разработчиками
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="h-3 w-3 text-indigo-600" />
+                    </div>
+                    <p className="text-sm">
+                      Практические задания с обратной связью от экспертов
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 mb-6 text-sm text-gray-600">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    <span>Старт 14 апреля</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    <span>2 недели</span>
+                  </div>
+                </div>
 
                 <div className="mt-auto">
                   <p className="text-lg font-medium mb-4">Способ оплаты</p>
@@ -965,135 +756,7 @@ export default function LandingPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">
-                Курс по AI для разработчиков
-              </h3>
-              <p className="text-gray-400">
-                Интенсив по интеграции RAG и созданию AI-агентов
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Навигация</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    О курсе
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Программа
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Эксперты
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Контакты</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="mailto:info@elbrusboot.camp"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    info@elbrusboot.camp
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://t.me/elbrus_bootcamp"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Чат в Telegram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+78001234567"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    +7 (499) 938-68-24
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.google.com/maps/place/Elbrus+Coding+Bootcamp+%7C+%D0%A8%D0%BA%D0%BE%D0%BB%D0%B0+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F+%D0%94%D0%BE%D0%BD%D1%81%D0%BA%D0%BE%D0%B9+%D1%80%D0%B0%D0%B9%D0%BE%D0%BD/@55.7065807,37.5926111,16.25z/data=!4m13!1m6!3m5!1s0x46b54bbba5624251:0x42cefa28cf581f67!2zRWxicnVzIENvZGluZyBCb290Y2FtcCB8INCo0LrQvtC70LAg0L_RgNC-0LPRgNCw0LzQvNC40YDQvtCy0LDQvdC40Y8g0JTQvtC90YHQutC-0Lkg0YDQsNC50L7QvQ!8m2!3d55.706541!4d37.5970071!3m5!1s0x46b54bbba5624251:0x42cefa28cf581f67!8m2!3d55.706541!4d37.5970071!15sChZFbGJydXMgQ29kaW5nIEJvb3RjYW1wWjAKFmVsYnJ1cyBjb2RpbmcgYm9vdGNhbXAiFmVsYnJ1cyBjb2RpbmcgYm9vdGNhbXCSARBlZHVjYXRpb25fY2VudGVy"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Москва, ул. Орджоникидзе, 11 стр. 10 (м. Ленинский проспект)
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Документы</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="https://elbrusboot.camp/docs/confidentiality_agreement.pdf"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Политика обработки персональных данных
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://elbrusboot.camp/docs/end_user_license_agreement.pdf"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Пользовательское соглашение
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://elbrusboot.camp/contract_agreements/"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Договор оферта
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://tt.elbrusboot.camp/services"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Об образовательной организации
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://elbrusboot.camp/docs/edu_license.pdf"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Государственная лицензия
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2025 ООО "Эльбрус Буткемп". Все права защищены.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
