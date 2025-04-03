@@ -1,12 +1,11 @@
-"use client";
+"use client"
 
-import type React from "react";
+import type React from "react"
 
-import Footer from "@/components/footer";
-import HowTrainingWorks from "@/components/how-training-works";
-import Programm from "@/components/programm";
-import { TechLogos } from "@/components/tech-logos";
-import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer"
+import Programm from "@/components/programm"
+import { TechLogos } from "@/components/tech-logos"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -14,23 +13,15 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Calendar,
-  CheckCircle,
-  Clock,
-  Code,
-  CreditCard,
-  Database,
-  HelpCircle,
-  Zap,
-} from "lucide-react";
-import Script from "next/script";
-import { useEffect, useRef, useState } from "react";
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Calendar, CheckCircle, Clock, Code, CreditCard, Database, HelpCircle, Zap } from "lucide-react"
+import Script from "next/script"
+import { useEffect, useRef, useState } from "react"
+import HowTrainingWorks from "@/components/how-training-works"
 
-const coursePrice = 55000;
+const coursePrice = 55000
 const codeBlock = `from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
@@ -48,7 +39,7 @@ agent = RetrievalQA.from_chain_type(
   llm=OpenAI(),
   chain_type="stuff",
   retriever=vectorstore.as_retriever()
-)`;
+)`
 const inputs = [
   { name: "terminalkey", value: "1743087532455DEMO" },
   { name: "frame", value: "false" },
@@ -60,12 +51,11 @@ const inputs = [
   // { name: "name", value: "" },
   { name: "email", value: "" },
   { name: "phone", value: "" },
-];
+]
 const experts = [
   {
     name: "Александр Князев",
-    imageSrc:
-      "https://getmentor.blob.core.windows.net/mentor-images/aleksandr-kniazev-3786/full",
+    imageSrc: "https://getmentor.blob.core.windows.net/mentor-images/aleksandr-kniazev-3786/full",
     role: "Ведущий эксперт",
     points: [
       "Выпускник мехмата МГУ",
@@ -78,8 +68,7 @@ const experts = [
   },
   {
     name: "Юрий Плисковский",
-    imageSrc:
-      "https://elbrusboot.camp/static/d0b6ef0d8f9828a6dc707fc64c721d11/c0321/pliskovskiy.jpg",
+    imageSrc: "https://elbrusboot.camp/static/d0b6ef0d8f9828a6dc707fc64c721d11/c0321/pliskovskiy.jpg",
     role: "Ведущий эксперт",
     points: [
       "Директор по образовательной программе в Эльбрус Буткемп",
@@ -92,8 +81,7 @@ const experts = [
   },
   {
     name: "Георгий Бабаян",
-    imageSrc:
-      "https://elbrusboot.camp/static/30d229c2aaef047f7d9a5c2116acd8db/c3f7f/babayan.jpg",
+    imageSrc: "https://elbrusboot.camp/static/30d229c2aaef047f7d9a5c2116acd8db/c3f7f/babayan.jpg",
     role: "CEO & Основатель Elbrus Bootcamp",
     points: [
       "10 лет в IT-образовании и запуске EdTech-проектов",
@@ -104,58 +92,58 @@ const experts = [
     description:
       "10 лет в IT-образовании и запуске EdTech-проектов\nОсновал Elbrus Bootcamp — одну из крупнейших школ программирования в России (2000+ выпускников)  \nРазвивает собственную AI-школу с фокусом на практические навыки и карьерные результаты  \nРуководил командами в 50+ человек, создавал и масштабировал образовательные продукты  \nРаботал с партнёрами из IT и HR-сферы: Сбер, Тинькофф, Selectel \nРегулярно выступает на конференциях по технологиям, образованию и управлению командами",
   },
-];
+]
 
 export default function LandingPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     email: "",
-  });
+  })
 
   const [formErrors, setFormErrors] = useState({
     fullName: "",
     phone: "",
     email: "",
-  });
+  })
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isFormValid, setIsFormValid] = useState(false)
 
-  const paymentSectionRef = useRef<HTMLDivElement>(null);
+  const paymentSectionRef = useRef<HTMLDivElement>(null)
   const validateForm = () => {
-    const { fullName, phone, email } = formData;
+    const { fullName, phone, email } = formData
     const errors = {
       fullName: "",
       phone: "",
       email: "",
-    };
+    }
 
     // Validate fullName
     if (fullName.trim().length > 0) {
       if (fullName.trim().length < 3) {
-        errors.fullName = "Ф.И.О. должно содержать минимум 3 символа";
+        errors.fullName = "Ф.И.О. должно содержать минимум 3 символа"
       } else if (!fullName.includes(" ")) {
-        errors.fullName = "Ф.И.О. должно содержать как минимум 2 слова";
+        errors.fullName = "Ф.И.О. должно содержать как минимум 2 слова"
       } else if (fullName.trim().split(/\s+/).filter(Boolean).length < 2) {
-        errors.fullName = "Ф.И.О. должно содержать как минимум 2 слова";
+        errors.fullName = "Ф.И.О. должно содержать как минимум 2 слова"
       }
     }
 
     // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (email.trim().length > 0 && !emailRegex.test(email)) {
-      errors.email = "Пожалуйста, введите корректный email";
+      errors.email = "Пожалуйста, введите корректный email"
     }
 
     // Validate phone
-    const phoneRegex = /^(\+7|7|8)(\d{10})$/;
+    const phoneRegex = /^(\+7|7|8)(\d{10})$/
     if (phone.trim().length > 0 && !phoneRegex.test(phone)) {
-      errors.phone = "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр";
+      errors.phone = "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр"
     }
 
-    setFormErrors(errors);
+    setFormErrors(errors)
 
     // Form is valid if there are no errors
     setIsFormValid(
@@ -164,25 +152,23 @@ export default function LandingPage() {
         phone.trim().length > 0 &&
         !errors.fullName &&
         !errors.email &&
-        !errors.phone
-    );
-  };
+        !errors.phone,
+    )
+  }
   // Validate form
-  useEffect(validateForm, [formData]);
+  useEffect(validateForm, [formData])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (isFormValid) {
       try {
-        const questionElement = document.getElementById(
-          "question"
-        ) as HTMLTextAreaElement;
-        const question = questionElement?.value || "";
+        const questionElement = document.getElementById("question") as HTMLTextAreaElement
+        const question = questionElement?.value || ""
 
         const response = await fetch("/api/contact", {
           method: "POST",
@@ -193,44 +179,42 @@ export default function LandingPage() {
             ...formData,
             question,
           }),
-        });
+        })
 
         if (!response.ok) {
-          throw new Error("Failed to send message");
+          throw new Error("Failed to send message")
         }
 
         // Show success message
-        setIsSubmitted(true);
+        setIsSubmitted(true)
 
         // Reset form after submission
         setTimeout(() => {
-          setIsModalOpen(false);
-          setIsSubmitted(false);
+          setIsModalOpen(false)
+          setIsSubmitted(false)
           setFormData({
             fullName: "",
             phone: "",
             email: "",
-          });
+          })
           if (questionElement) {
-            questionElement.value = "";
+            questionElement.value = ""
           }
-        }, 2000);
+        }, 2000)
       } catch (error) {
-        console.error("Error:", error);
-        alert(
-          "Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже."
-        );
+        console.error("Error:", error)
+        alert("Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже.")
       }
     }
-  };
+  }
 
   const scrollToPayment = () => {
-    paymentSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+    paymentSectionRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
 
   const handlePayment: React.FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    const TPF = e.currentTarget;
+    e.preventDefault()
+    const TPF = e.currentTarget
     TPF.receipt.value = JSON.stringify({
       // проверить данные компании для чека!
       EmailCompany: "bills@elbrusboot.camp",
@@ -248,27 +232,23 @@ export default function LandingPage() {
           MeasurementUnit: "pc",
         },
       ],
-    });
-    TPF.email.value = formData.email;
-    TPF.phone.value = formData.phone;
+    })
+    TPF.email.value = formData.email
+    TPF.phone.value = formData.phone
     // (TPF.querySelector('[name="name"]') as HTMLInputElement).value =
     //   formData.fullName;
 
-    window.pay?.(TPF);
-  };
+    window.pay?.(TPF)
+  }
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-hidden">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-600 to-purple-600 py-20 text-white">
         <div className="container mx-auto px-4">
           {/* Logo */}
           <div className="flex justify-start mb-8">
             <div className="w-40 h-12 bg-white/90 rounded-md flex items-center justify-center">
-              <img
-                src="/logos/elbrus.svg"
-                alt="Elbrus Logo"
-                className="h-8 w-auto"
-              />
+              <img src="/logos/elbrus.svg" alt="Elbrus Logo" className="h-8 w-auto" />
             </div>
           </div>
 
@@ -281,16 +261,11 @@ export default function LandingPage() {
                 Курс по AI для разработчиков
               </h1>
               <p className="text-lg md:text-xl text-white/90">
-                Освойте интеграцию RAG в свои проекты и научитесь создавать
-                AI-агентов для автоматизации разработки, деплоя и
-                бизнес-процессов
+                Освойте интеграцию RAG в свои проекты и научитесь создавать AI-агентов для автоматизации разработки,
+                деплоя и бизнес-процессов
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-white text-indigo-700 hover:bg-white/90"
-                  onClick={scrollToPayment}
-                >
+                <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90" onClick={scrollToPayment}>
                   Купить курс
                 </Button>
                 <div className="flex flex-col sm:flex-row gap-3 mt-2">
@@ -306,17 +281,15 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -top-16 -right-8 w-70 h-60 rounded-lg overflow-hidden shadow-xl z-10 rotate-6 border-4 border-white/20">
-                <img
-                  src="/zoom.png"
-                  alt="Zoom webinar"
-                  className="w-full h-full object-cover"
-                />
+              {/* Zoom image - hidden on mobile */}
+              <div className="absolute -top-16 -right-8 w-70 h-60 rounded-lg overflow-hidden shadow-xl z-10 rotate-6 border-4 border-white/20 hidden md:block">
+                <img src="/zoom.png" alt="Zoom webinar" className="w-full h-full object-cover" />
               </div>
               <div className="relative">
                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 opacity-75 blur"></div>
                 <div className="relative rounded-lg bg-black p-6">
-                  <pre className="text-green-400 font-mono text-sm">
+                  {/* Make code block responsive with overflow handling */}
+                  <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{codeBlock}</code>
                   </pre>
                 </div>
@@ -336,18 +309,16 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <p className="text-gray-700">
-                Чтобы оставаться конкурентоспособным, современному разработчику
-                важно работать быстрее с минимальными затратами. Интеграция RAG
-                и AI-агентов позволяет оптимизировать процессы, ускорить
-                разработку и обеспечить стабильное качество результатов.
+                Чтобы оставаться конкурентоспособным, современному разработчику важно работать быстрее с минимальными
+                затратами. Интеграция RAG и AI-агентов позволяет оптимизировать процессы, ускорить разработку и
+                обеспечить стабильное качество результатов.
               </p>
             </div>
             <div className="bg-gray-50 p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <p className="text-gray-700">
-                В рамках интенсива вы освоите передовые инструменты для
-                подключения AI через API, создания векторных баз данных и
-                разработки AI-агентов, которые помогут автоматизировать задачи
-                от деплоя до написания кода по ТЗ.
+                В рамках интенсива вы освоите передовые инструменты для подключения AI через API, создания векторных баз
+                данных и разработки AI-агентов, которые помогут автоматизировать задачи от деплоя до написания кода по
+                ТЗ.
               </p>
             </div>
           </div>
@@ -371,35 +342,28 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Опытным разработчикам</h3>
               <p className="text-gray-700">
-                Если вы уже работаете в IT и хотите вывести свою эффективность
-                на новый уровень, вы научитесь интегрировать инновационные
-                AI-решения в существующие проекты.
+                Если вы уже работаете в IT и хотите вывести свою эффективность на новый уровень, вы научитесь
+                интегрировать инновационные AI-решения в существующие проекты.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="mb-4">
                 <Database className="h-10 w-10 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-bold mb-4">
-                Инженерам и архитекторам ПО
-              </h3>
+              <h3 className="text-xl font-bold mb-4">Инженерам и архитекторам ПО</h3>
               <p className="text-gray-700">
-                Для тех, кто проектирует сложные системы, интенсив предоставит
-                набор инструментов для автоматизации процессов и повышения
-                качества кода с помощью AI-агентов.
+                Для тех, кто проектирует сложные системы, интенсив предоставит набор инструментов для автоматизации
+                процессов и повышения качества кода с помощью AI-агентов.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="mb-4">
                 <Zap className="h-10 w-10 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-bold mb-4">
-                Предпринимателям и IT-руководителям
-              </h3>
+              <h3 className="text-xl font-bold mb-4">Предпринимателям и IT-руководителям</h3>
               <p className="text-gray-700">
-                Если вы управляете командами и ищете способы оптимизации
-                бизнес-процессов, интенсив научит вас внедрять AI-технологии для
-                стабильного роста и инноваций.
+                Если вы управляете командами и ищете способы оптимизации бизнес-процессов, интенсив научит вас внедрять
+                AI-технологии для стабильного роста и инноваций.
               </p>
             </div>
           </div>
@@ -445,24 +409,17 @@ export default function LandingPage() {
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <div className="space-y-4">
               <p className="text-gray-700 text-lg leading-relaxed">
-                <strong>
-                  После интенсива вы получите сертификат, подтверждающий ваши
-                  навыки AI-инженера.
-                </strong>
-                &nbsp; Вы сможете настраивать RAG на свои проекты,
-                автоматизировать задачи с помощью AI-агентов и интегрировать
-                передовые решения в рабочие процессы.
+                <strong>После интенсива вы получите сертификат, подтверждающий ваши навыки AI-инженера.</strong>
+                &nbsp; Вы сможете настраивать RAG на свои проекты, автоматизировать задачи с помощью AI-агентов и
+                интегрировать передовые решения в рабочие процессы.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Специалисты по AI-агентам — профессия будущего. Сейчас таких
-                экспертов в России почти нет, но спрос на них стремительно
-                растёт. Многие компании хотят оптимизировать процессы за счёт
-                AI, и вы станете одним из первых специалистов в этой
-                развивающейся сфере.
+                Специалисты по AI-агентам — профессия будущего. Сейчас таких экспертов в России почти нет, но спрос на
+                них стремительно растёт. Многие компании хотят оптимизировать процессы за счёт AI, и вы станете одним из
+                первых специалистов в этой развивающейся сфере.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed font-medium">
-                Этот интенсив даст вам преимущество на рынке и откроет новые
-                карьерные возможности.
+                Этот интенсив даст вам преимущество на рынке и откроет новые карьерные возможности.
               </p>
             </div>
           </div>
@@ -477,14 +434,10 @@ export default function LandingPage() {
               {/* Left side - Payment form */}
               <div className="p-8 border-r border-gray-200">
                 <h2 className="text-3xl font-bold mb-2">Оплата</h2>
-                <p className="text-gray-600 mb-6">
-                  Курс по AI для разработчиков
-                </p>
+                <p className="text-gray-600 mb-6">Курс по AI для разработчиков</p>
 
                 <div className="mt-8">
-                  <h3 className="text-xl font-semibold mb-4">
-                    Контактные данные
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-4">Контактные данные</h3>
                   <form className="space-y-4">
                     <div>
                       <Label htmlFor="fullName">Ф.И.О.</Label>
@@ -497,11 +450,7 @@ export default function LandingPage() {
                         required
                         className={formErrors.fullName ? "border-red-500" : ""}
                       />
-                      {formErrors.fullName && (
-                        <p className="text-sm text-red-500 mt-1">
-                          {formErrors.fullName}
-                        </p>
-                      )}
+                      {formErrors.fullName && <p className="text-sm text-red-500 mt-1">{formErrors.fullName}</p>}
                     </div>
                     <div>
                       <Label htmlFor="email">Email</Label>
@@ -515,11 +464,7 @@ export default function LandingPage() {
                         required
                         className={formErrors.email ? "border-red-500" : ""}
                       />
-                      {formErrors.email && (
-                        <p className="text-sm text-red-500 mt-1">
-                          {formErrors.email}
-                        </p>
-                      )}
+                      {formErrors.email && <p className="text-sm text-red-500 mt-1">{formErrors.email}</p>}
                     </div>
                     <div>
                       <Label htmlFor="phone">Телефон</Label>
@@ -532,11 +477,7 @@ export default function LandingPage() {
                         required
                         className={formErrors.phone ? "border-red-500" : ""}
                       />
-                      {formErrors.phone && (
-                        <p className="text-sm text-red-500 mt-1">
-                          {formErrors.phone}
-                        </p>
-                      )}
+                      {formErrors.phone && <p className="text-sm text-red-500 mt-1">{formErrors.phone}</p>}
                     </div>
                   </form>
                 </div>
@@ -548,9 +489,7 @@ export default function LandingPage() {
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-semibold">Итого</h3>
                     <div className="flex flex-col items-end">
-                      <span className="text-sm text-gray-500 line-through">
-                        109 500 ₽
-                      </span>
+                      <span className="text-sm text-gray-500 line-through">109 500 ₽</span>
                       <div className="flex items-center gap-2">
                         <span className="text-4xl font-bold">55 000 ₽</span>
                         <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
@@ -559,9 +498,7 @@ export default function LandingPage() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4">
-                    Скидка 50% для первых 15 участников
-                  </p>
+                  <p className="text-sm text-gray-600 mb-4">Скидка 50% для первых 15 участников</p>
                 </div>
 
                 <div className="space-y-4 mb-6">
@@ -575,18 +512,13 @@ export default function LandingPage() {
                     <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <CheckCircle className="h-3 w-3 text-indigo-600" />
                     </div>
-                    <p className="text-sm">
-                      Закрытое сообщество в Telegram с действующими
-                      разработчиками
-                    </p>
+                    <p className="text-sm">Закрытое сообщество в Telegram с действующими разработчиками</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <CheckCircle className="h-3 w-3 text-indigo-600" />
                     </div>
-                    <p className="text-sm">
-                      Практические задания с обратной связью от экспертов
-                    </p>
+                    <p className="text-sm">Практические задания с обратной связью от экспертов</p>
                   </div>
                 </div>
 
@@ -606,22 +538,9 @@ export default function LandingPage() {
                   <form onSubmit={handlePayment}>
                     <Script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js" />
                     {inputs.map((inp) => (
-                      <input
-                        {...inp}
-                        key={inp.name}
-                        type="hidden"
-                        required
-                        disabled
-                      />
+                      <input {...inp} key={inp.name} type="hidden" required disabled />
                     ))}
-                    <input
-                      key="name"
-                      type="hidden"
-                      name="name"
-                      required
-                      disabled
-                      value={formData.fullName}
-                    />
+                    <input key="name" type="hidden" name="name" required disabled value={formData.fullName} />
                     <Button
                       type="submit"
                       className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-6 text-lg flex items-center justify-center gap-2"
@@ -629,30 +548,27 @@ export default function LandingPage() {
                         if (formData.fullName === "")
                           setFormErrors((e) => ({
                             ...e,
-                            fullName:
-                              "Ф.И.О. должно содержать минимум 3 символа",
-                          }));
+                            fullName: "Ф.И.О. должно содержать минимум 3 символа",
+                          }))
                         if (formData.email === "")
                           setFormErrors((e) => ({
                             ...e,
                             email: "Пожалуйста, введите корректный email",
-                          }));
+                          }))
                         if (formData.phone === "")
                           setFormErrors((e) => ({
                             ...e,
-                            phone:
-                              "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр",
-                          }));
+                            phone: "Телефон должен начинаться с +7, 7 или 8, затем 10 цифр",
+                          }))
                         if (!isFormValid) {
-                          e.preventDefault();
+                          e.preventDefault()
                           // Scroll to the first error field
-                          const firstErrorField =
-                            document.querySelector(".border-red-500");
+                          const firstErrorField = document.querySelector(".border-red-500")
                           if (firstErrorField) {
                             firstErrorField.scrollIntoView({
                               behavior: "smooth",
                               block: "center",
-                            });
+                            })
                           }
                         }
                       }}
@@ -677,10 +593,7 @@ export default function LandingPage() {
             </div>
             <h3 className="text-2xl font-bold mb-2">Остались вопросы?</h3>
             <p className="text-gray-700 mb-6">Свяжитесь с нами</p>
-            <Button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-indigo-600 hover:bg-indigo-700"
-            >
+            <Button onClick={() => setIsModalOpen(true)} className="bg-indigo-600 hover:bg-indigo-700">
               Задать вопрос
             </Button>
           </div>
@@ -693,19 +606,14 @@ export default function LandingPage() {
           <DialogHeader>
             <DialogTitle>Задать вопрос</DialogTitle>
             <DialogDescription>
-              Заполните форму, и мы свяжемся с вами, чтобы ответить на все ваши
-              вопросы
+              Заполните форму, и мы свяжемся с вами, чтобы ответить на все ваши вопросы
             </DialogDescription>
           </DialogHeader>
           {isSubmitted ? (
             <div className="py-6 flex flex-col items-center justify-center text-center">
               <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-              <h3 className="text-xl font-medium text-gray-900">
-                Вопрос отправлен!
-              </h3>
-              <p className="mt-2 text-gray-500">
-                Спасибо за ваш интерес. Мы свяжемся с вами в ближайшее время.
-              </p>
+              <h3 className="text-xl font-medium text-gray-900">Вопрос отправлен!</h3>
+              <p className="mt-2 text-gray-500">Спасибо за ваш интерес. Мы свяжемся с вами в ближайшее время.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -720,11 +628,7 @@ export default function LandingPage() {
                     placeholder="Иванов Иван Иванович"
                     className={formErrors.fullName ? "border-red-500" : ""}
                   />
-                  {formErrors.fullName && (
-                    <p className="text-sm text-red-500">
-                      {formErrors.fullName}
-                    </p>
-                  )}
+                  {formErrors.fullName && <p className="text-sm text-red-500">{formErrors.fullName}</p>}
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="modal-phone">Телефон</Label>
@@ -736,9 +640,7 @@ export default function LandingPage() {
                     placeholder="+7XXXXXXXXXX"
                     className={formErrors.phone ? "border-red-500" : ""}
                   />
-                  {formErrors.phone && (
-                    <p className="text-sm text-red-500">{formErrors.phone}</p>
-                  )}
+                  {formErrors.phone && <p className="text-sm text-red-500">{formErrors.phone}</p>}
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="modal-email">Email</Label>
@@ -751,9 +653,7 @@ export default function LandingPage() {
                     placeholder="example@mail.com"
                     className={formErrors.email ? "border-red-500" : ""}
                   />
-                  {formErrors.email && (
-                    <p className="text-sm text-red-500">{formErrors.email}</p>
-                  )}
+                  {formErrors.email && <p className="text-sm text-red-500">{formErrors.email}</p>}
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="question">Ваш вопрос</Label>
@@ -776,7 +676,7 @@ export default function LandingPage() {
 
       <Footer />
     </div>
-  );
+  )
 }
 
 function ExpertCard({
@@ -786,20 +686,16 @@ function ExpertCard({
   points,
   description,
 }: {
-  imageSrc: string;
-  name: string;
-  role: string;
-  description: string;
-  points: string[];
+  imageSrc: string
+  name: string
+  role: string
+  description: string
+  points: string[]
 }) {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <div className="aspect-square overflow-hidden">
-        <img
-          src={imageSrc || "/placeholder.svg"}
-          alt={name}
-          className="w-full h-full object-cover object-top"
-        />
+        <img src={imageSrc || "/placeholder.svg"} alt={name} className="w-full h-full object-cover object-top" />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1">{name}</h3>
@@ -812,5 +708,6 @@ function ExpertCard({
         </ul>
       </div>
     </div>
-  );
+  )
 }
+
