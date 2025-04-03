@@ -62,7 +62,7 @@ export default function HowTrainingWorks() {
             {/* Item 1 */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="bg-gray-200 rounded-lg aspect-video overflow-hidden">
-                <img src="/1.jpg" alt="Интенсивное обучение" className="w-full h-full object-cover" />
+                <img src="/4.webp" alt="Интенсивное обучение" className="w-full h-full object-cover" />
               </div>
               <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm">
                 <div className="flex items-start mb-4">
@@ -94,7 +94,7 @@ export default function HowTrainingWorks() {
                 </div>
               </div>
               <div className="order-1 md:order-2 bg-gray-200 rounded-lg aspect-video overflow-hidden">
-                <img src="/2.jpg" alt="Практические занятия" className="w-full h-full object-cover" />
+                <img src="/5.webp" alt="Практические занятия" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
