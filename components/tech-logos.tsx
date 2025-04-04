@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 interface TechLogoProps {
@@ -38,7 +39,11 @@ const PlaceholderLogo = ({ name }: { name: string }) => {
   );
 };
 
-export const TechLogos = () => {
+export default function TechLogos({
+  scrollToPayment,
+}: {
+  scrollToPayment: () => void;
+}) {
   const logos = [
     // {
     //   name: "JavaScript",
@@ -96,7 +101,7 @@ export const TechLogos = () => {
     // { name: "React", src: "/logos/react.svg", alt: "React Logo" },
   ];
 
-  const placeholders = [{ name: "GigaChat" }, { name: "Yandex Cloud" }];
+  // const placeholders = [{ name: "GigaChat" }, { name: "Yandex Cloud" }];
 
   return (
     <section className="py-16 bg-gray-50">
@@ -111,7 +116,7 @@ export const TechLogos = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {logos.map((logo) => (
             <TechLogo
               key={logo.name}
@@ -125,7 +130,16 @@ export const TechLogos = () => {
             <PlaceholderLogo key={placeholder.name} name={placeholder.name} />
           ))} */}
         </div>
+
+        <div className="flex justify-center">
+          <Button
+            onClick={scrollToPayment}
+            className="bg-indigo-600 hover:bg-indigo-700"
+          >
+            Начать обучение
+          </Button>
+        </div>
       </div>
     </section>
   );
-};
+}

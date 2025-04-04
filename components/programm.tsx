@@ -136,14 +136,14 @@ export default function Programm() {
                     key={index}
                     className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm"
                   >
-                    <h3 className="text-xl font-bold text-indigo-600 mb-2">
+                    <h3 className="text-xl font-bold text-[#4528A8] mb-2">
                       {day.title}
                     </h3>
                     <p className="text-gray-700 mb-4">{day.description}</p>
                     <div className="space-y-2 mt-4">
                       {day.points.map((point, i) => (
                         <div key={i} className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-indigo-600 mr-3"></div>
+                          <div className="w-3 h-3 rounded-full bg-[#4528A8] mr-3"></div>
                           <p>{point}</p>
                         </div>
                       ))}
