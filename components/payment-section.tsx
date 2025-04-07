@@ -180,14 +180,27 @@ export default function PaymentSection({
               </div>
             </div>
 
-            <div className="flex items-center gap-4 mb-6 text-sm text-gray-600">
-              <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                <span>Старт 14 апреля</span>
+            <div className="space-y-3 mb-6 text-sm text-gray-600">
+              <p className="font-medium text-base text-gray-700 mb-2">
+                Ближайшие потоки:
+              </p>
+              <div className="flex items-center gap-2 bg-white p-3 rounded-md">
+                <Calendar className="h-4 w-4 text-indigo-600" />
+                <span>1-й поток — старт 14 апреля</span>
+                <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
+                  осталось 7 мест
+                </span>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-2 bg-white p-3 rounded-md">
+                <Calendar className="h-4 w-4 text-indigo-600" />
+                <span>2-й поток — старт 28 апреля</span>
+                <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
+                  осталось 14 мест
+                </span>
+              </div>
+              <div className="flex items-center gap-1 mt-2">
                 <Clock className="h-4 w-4" />
-                <span>2 недели</span>
+                <span>Длительность: 2 недели</span>
               </div>
             </div>
 

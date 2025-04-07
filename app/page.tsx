@@ -10,6 +10,7 @@ import HowTrainingWorks from "@/components/how-training-works";
 import PaymentSection from "@/components/payment-section";
 import Programm from "@/components/programm";
 import ResultsSection from "@/components/results-section";
+import TechLogos from "@/components/tech-logos";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -24,7 +25,6 @@ import { Label } from "@/components/ui/label";
 import WhoIsThisFor from "@/components/who-is-this-for";
 import { CheckCircle, HelpCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import TechLogos from "@/components/tech-logos";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);

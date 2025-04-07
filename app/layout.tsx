@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-// import "./fonts.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,9 +35,30 @@ const rfRostin = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AI-инженер",
+  title: "Курс AI для разработчиков",
   description: "Курс от Эльбрус Буткемп: AI-инженер",
   generator: "v0.dev",
+  openGraph: {
+    title: "Курс AI для разработчиков",
+    description: "Курс от Эльбрус Буткемп: AI-инженер",
+    url: "https://ai.elbrusboot.camp",
+    siteName: "Курс AI для разработчиков",
+    images: [
+      {
+        url: "https://ai.elbrusboot.camp/images/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Курс AI для разработчиков",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Курс AI для разработчиков",
+    description: "Курс от Эльбрус Буткемп: AI-инженер",
+    images: ["https://ai.elbrusboot.camp/images/og.png"],
+  },
 };
 
 export default function RootLayout({
