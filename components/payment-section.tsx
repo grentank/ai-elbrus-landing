@@ -151,7 +151,7 @@ export default function PaymentSection({
                 </div>
               </div>
               <p className="text-sm text-gray-600 mb-4">
-                Скидка 50% для первых 15 участников
+                Скидка 50% для первых 3 стартов
               </p>
             </div>
 
@@ -186,14 +186,14 @@ export default function PaymentSection({
               </p>
               <div className="flex items-center gap-2 bg-white p-3 rounded-md">
                 <Calendar className="h-4 w-4 text-indigo-600" />
-                <span>1-й поток — старт 14 апреля</span>
+                <span>2-й поток — старт 14 апреля</span>
                 <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
-                  осталось 7 мест
+                  осталось 6 мест
                 </span>
               </div>
               <div className="flex items-center gap-2 bg-white p-3 rounded-md">
                 <Calendar className="h-4 w-4 text-indigo-600" />
-                <span>2-й поток — старт 28 апреля</span>
+                <span>3-й поток — старт 28 апреля</span>
                 <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
                   осталось 14 мест
                 </span>

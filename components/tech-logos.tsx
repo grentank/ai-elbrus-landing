@@ -84,7 +84,7 @@ export default function TechLogos({
     },
     { name: "LangChain", src: "/logos/langchain.svg", alt: "LangChain Logo" },
     { name: "LangGraph", src: "/logos/langgraph.svg", alt: "LangGraph Logo" },
-    { name: "Next.js", src: "/logos/nextjs.svg", alt: "Next.js Logo" },
+    // { name: "Next.js", src: "/logos/nextjs.svg", alt: "Next.js Logo" },
     { name: "v0", src: "/logos/v0.svg", alt: "v0 Logo" },
     { name: "Replit", src: "/logos/replit.svg", alt: "Replit Logo" },
     {
@@ -96,6 +96,16 @@ export default function TechLogos({
       name: "Tavily",
       src: "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/ba5c5b3ffbf447dc9b30664b3e0c2abb",
       alt: "Tavily logo",
+    },
+    {
+      name: "MCP",
+      src: "/logos/mcp.png",
+      alt: "Model Context Protocol",
+    },
+    {
+      name: "n8n",
+      src: "/logos/n8n.png",
+      alt: "n8n Logo",
     },
     // { name: "RAG", src: "/logos/rag.svg", alt: "RAG Logo" },
     // { name: "React", src: "/logos/react.svg", alt: "React Logo" },

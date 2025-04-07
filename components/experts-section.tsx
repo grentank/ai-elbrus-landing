@@ -3,7 +3,7 @@ const experts = [
     name: "Александр Князев",
     imageSrc:
       "https://getmentor.blob.core.windows.net/mentor-images/aleksandr-kniazev-3786/full",
-    role: "Ведущий эксперт",
+    role: "Автор курса",
     points: [
       "Выпускник мехмата МГУ",
       "Более 10 лет опыта программирования на C++, Wolfram и Python",
@@ -17,7 +17,7 @@ const experts = [
     name: "Юрий Плисковский",
     imageSrc:
       "https://elbrusboot.camp/static/d0b6ef0d8f9828a6dc707fc64c721d11/c0321/pliskovskiy.jpg",
-    role: "Ведущий эксперт",
+    role: "Автор курса",
     points: [
       "В сфере разработки и обучения с 2017 года",
       "Директор по образовательной программе в Эльбрус Буткемп",

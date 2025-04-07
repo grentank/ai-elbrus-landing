@@ -30,9 +30,7 @@ export default function ResultsSection() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>
-                    Актуальные знания в самой востребованной профессии будущего
-                  </span>
+                  <span>Вечный доступ к материалам курса</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
