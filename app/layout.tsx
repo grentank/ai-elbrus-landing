@@ -35,28 +35,28 @@ const rfRostin = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Курс AI для разработчиков",
-  description: "Курс от Эльбрус Буткемп: AI-инженер",
+  title: "Курс по AI для разработчиков",
+  description: "Курс от Эльбрус Буткемп: AI для разработчиков",
   generator: "v0.dev",
   openGraph: {
-    title: "Курс AI для разработчиков",
-    description: "Курс от Эльбрус Буткемп: AI-инженер",
+    title: "Курс по AI для разработчиков",
+    description: "Курс от Эльбрус Буткемп: AI для разработчиков",
     url: "https://ai.elbrusboot.camp",
-    siteName: "Курс AI для разработчиков",
+    siteName: "Курс по AI для разработчиков",
     images: [
       {
         url: "https://ai.elbrusboot.camp/images/og.png",
         width: 1200,
         height: 630,
-        alt: "Курс AI для разработчиков",
+        alt: "Курс по AI для разработчиков",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Курс AI для разработчиков",
-    description: "Курс от Эльбрус Буткемп: AI-инженер",
+    title: "Курс по AI для разработчиков",
+    description: "Курс от Эльбрус Буткемп: AI для разработчиков",
     images: ["https://ai.elbrusboot.camp/images/og.png"],
   },
 };
