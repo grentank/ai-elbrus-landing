@@ -28,11 +28,17 @@ export default function HeroSection({
         {/* Logo */}
         <div className="flex justify-start mb-8">
           <div className="w-40 h-12 bg-white/90 rounded-md flex items-center justify-center">
-            <img
-              src="/logos/elbrus.svg"
-              alt="Elbrus Logo"
-              className="h-8 w-auto"
-            />
+            <a
+              href="https://elbrusboot.camp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/logos/elbrus.svg"
+                alt="Elbrus Logo"
+                className="h-8 w-auto"
+              />
+            </a>
           </div>
         </div>
 
