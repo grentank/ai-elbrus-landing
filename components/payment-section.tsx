@@ -184,16 +184,16 @@ export default function PaymentSection({
               <p className="font-medium text-base text-gray-700 mb-2">
                 Ближайшие потоки:
               </p>
-              <div className="flex items-center gap-2 bg-white p-3 rounded-md">
-                <Calendar className="h-4 w-4 text-indigo-600" />
-                <span>2-й поток — старт 14 апреля</span>
-                <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
-                  осталось 0 мест
+              <div className="flex items-center gap-2 bg-gray-50 p-3 rounded-md opacity-50">
+                <Calendar className="h-4 w-4 text-gray-400" />
+                <span className="line-through">2-й поток — старт 14 апреля</span>
+                <span className="ml-auto text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                  набор закрыт
                 </span>
               </div>
-              <div className="flex items-center gap-2 bg-white p-3 rounded-md">
+              <div className="flex items-center gap-2 bg-white p-3 rounded-md border-2 border-indigo-100">
                 <Calendar className="h-4 w-4 text-indigo-600" />
-                <span>3-й поток — старт 28 апреля</span>
+                <span className="font-medium">3-й поток — старт 28 апреля</span>
                 <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
                   осталось 13 мест
                 </span>
