@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   title: "Курс по AI для разработчиков",
   description: "Курс от Эльбрус Буткемп: AI для разработчиков",
   generator: "v0.dev",
+  icons: {
+    icon: "/favicon.webp",
+  },
   openGraph: {
     title: "Курс по AI для разработчиков",
     description: "Курс от Эльбрус Буткемп: AI для разработчиков",
