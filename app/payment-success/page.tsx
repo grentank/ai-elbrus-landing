@@ -51,7 +51,8 @@ export default function PaymentSuccessPage() {
             <CardFooter className="bg-gray-50 border-t border-gray-100">
               <Button asChild className="bg-indigo-600 hover:bg-indigo-700">
                 <Link
-                  href="https://t.me/+Ez-Yx5C1QfwwOTgy"
+                  href="https://t.me/+Fk6jMVyk3TZiNGFi"
+                  // href="https://t.me/+Ez-Yx5C1QfwwOTgy"
                   // href="https://t.me/+VD1BgOhDDAo4YWU6"
                   target="_blank"
                   rel="noopener noreferrer"
