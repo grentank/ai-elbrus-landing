@@ -197,7 +197,7 @@ export default function PaymentSection({
                 <Calendar className="h-4 w-4 text-indigo-600" />
                 <span className="font-medium">3-й поток — старт 28 апреля</span>
                 <span className="ml-auto text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
-                  осталось 10 мест
+                  осталось 8 мест
                 </span>
               </div>
               <div className="flex items-center gap-1 mt-2">
