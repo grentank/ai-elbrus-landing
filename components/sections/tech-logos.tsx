@@ -1,7 +1,5 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import ScrollToPaymentButton from "../scroll-to-payment-button";
 
 interface TechLogoProps {
   name: string;
@@ -26,31 +24,8 @@ const TechLogo = ({ name, src, alt }: TechLogoProps) => {
   );
 };
 
-const PlaceholderLogo = ({ name }: { name: string }) => {
-  return (
-    <div className="flex flex-col items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-sm p-4 w-24 h-24 flex items-center justify-center border-2 border-dashed border-gray-300">
-        <span className="text-gray-400 text-xs text-center">
-          Логотип {name}
-        </span>
-      </div>
-      <span className="mt-2 text-sm font-medium text-gray-700">{name}</span>
-    </div>
-  );
-};
-
-export default function TechLogos({
-  scrollToPayment,
-}: {
-  scrollToPayment: () => void;
-}) {
+export default function TechLogos() {
   const logos = [
-    // {
-    //   name: "JavaScript",
-    //   src: "/logos/javascript.svg",
-    //   alt: "JavaScript Logo",
-    // },
-    // { name: "Python", src: "/logos/python.svg", alt: "Python Logo" },
     { name: "OpenAI", src: "/logos/openai.svg", alt: "OpenAI Logo" },
     {
       name: "DeepSeek",
@@ -84,7 +59,6 @@ export default function TechLogos({
     },
     { name: "LangChain", src: "/logos/langchain.svg", alt: "LangChain Logo" },
     { name: "LangGraph", src: "/logos/langgraph.svg", alt: "LangGraph Logo" },
-    // { name: "Next.js", src: "/logos/nextjs.svg", alt: "Next.js Logo" },
     { name: "v0", src: "/logos/v0.svg", alt: "v0 Logo" },
     { name: "Replit", src: "/logos/replit.svg", alt: "Replit Logo" },
     {
@@ -107,11 +81,7 @@ export default function TechLogos({
       src: "/logos/n8n.png",
       alt: "n8n Logo",
     },
-    // { name: "RAG", src: "/logos/rag.svg", alt: "RAG Logo" },
-    // { name: "React", src: "/logos/react.svg", alt: "React Logo" },
   ];
-
-  // const placeholders = [{ name: "GigaChat" }, { name: "Yandex Cloud" }];
 
   return (
     <section className="py-16 bg-gray-50">
@@ -135,19 +105,12 @@ export default function TechLogos({
               alt={logo.alt}
             />
           ))}
-
-          {/* {placeholders.map((placeholder) => (
-            <PlaceholderLogo key={placeholder.name} name={placeholder.name} />
-          ))} */}
         </div>
 
         <div className="flex justify-center">
-          <Button
-            onClick={scrollToPayment}
-            className="bg-indigo-600 hover:bg-indigo-700"
-          >
+          <ScrollToPaymentButton className="bg-indigo-600 hover:bg-indigo-700">
             Начать обучение
-          </Button>
+          </ScrollToPaymentButton>
         </div>
       </div>
     </section>

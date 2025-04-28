@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import ScrollToPaymentButton from "../scroll-to-payment-button";
 const codeBlock = `from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
@@ -17,11 +17,8 @@ agent = RetrievalQA.from_chain_type(
   chain_type="stuff",
   retriever=vectorstore.as_retriever()
 )`;
-export default function HeroSection({
-  scrollToPayment,
-}: {
-  scrollToPayment: () => void;
-}) {
+
+export default function HeroSection() {
   return (
     <section className="bg-gradient-to-r from-indigo-600 to-purple-600 py-20 text-white">
       <div className="container mx-auto px-4">
@@ -55,13 +52,12 @@ export default function HeroSection({
               AI-агентов для автоматизации разработки, деплоя и бизнес-процессов
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
+              <ScrollToPaymentButton
                 size="lg"
                 className="bg-white text-indigo-700 hover:bg-white/90"
-                onClick={scrollToPayment}
               >
                 Купить курс
-              </Button>
+              </ScrollToPaymentButton>
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-full">
                   <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>

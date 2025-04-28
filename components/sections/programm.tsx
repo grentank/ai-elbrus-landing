@@ -123,39 +123,46 @@ const weeksData = [
 
 export default function Programm() {
   return (
-    <div className="max-w-3xl mx-auto">
-      <Accordion type="single" collapsible className="w-full mb-8">
-        {weeksData.map((week) => (
-          <AccordionItem key={week.value} value={week.value}>
-            <AccordionTrigger className="text-2xl font-semibold">
-              {week.title}
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="space-y-6 mt-4">
-                {week.days.map((day, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm"
-                  >
-                    <h3 className="text-xl font-bold text-[#4528A8] mb-2">
-                      {day.title}
-                    </h3>
-                    <p className="text-gray-700 mb-4">{day.description}</p>
-                    <div className="space-y-2 mt-4">
-                      {day.points.map((point, i) => (
-                        <div key={i} className="flex items-center">
-                          <div className="w-3 h-3 rounded-full bg-[#4528A8] mr-3"></div>
-                          <p>{point}</p>
+    <section className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Программа интенсива</h2>
+        </div>
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="w-full mb-8">
+            {weeksData.map((week) => (
+              <AccordionItem key={week.value} value={week.value}>
+                <AccordionTrigger className="text-2xl font-semibold">
+                  {week.title}
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-6 mt-4">
+                    {week.days.map((day, index) => (
+                      <div
+                        key={index}
+                        className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm"
+                      >
+                        <h3 className="text-xl font-bold text-[#4528A8] mb-2">
+                          {day.title}
+                        </h3>
+                        <p className="text-gray-700 mb-4">{day.description}</p>
+                        <div className="space-y-2 mt-4">
+                          {day.points.map((point, i) => (
+                            <div key={i} className="flex items-center">
+                              <div className="w-3 h-3 rounded-full bg-[#4528A8] mr-3"></div>
+                              <p>{point}</p>
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+    </section>
   );
 }
