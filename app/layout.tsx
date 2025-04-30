@@ -1,3 +1,4 @@
+import YandexScript from "@/components/yandex/yandex-script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
@@ -78,7 +79,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${rfRostin.variable}`}>
-      <body>{children}</body>
+      <body>
+        <YandexScript />
+        {children}
+      </body>
     </html>
   );
 }
