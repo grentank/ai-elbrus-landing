@@ -75,7 +75,7 @@ export default function PaymentSection() {
       hash ===
       "22c74ad7366711c457feada8baf55560f3ac92d43fbe503ee672d5b14d1ac7d4"
     ) {
-      setCoursePrice(baseCoursePrice - 5000);
+      setCoursePrice(baseCoursePrice - 30000);
       setIsPromoCodeApplied(true);
       setFormErrors((e) => ({
         ...e,
