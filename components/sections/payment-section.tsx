@@ -73,9 +73,9 @@ export default function PaymentSection() {
     const hash = createHash("sha256").update(promoCode).digest("hex");
     if (
       hash ===
-      "92333e7ba4ba130fad26af13ae8c98157a08956f75701605213e5bad7ed9a064"
+      "22c74ad7366711c457feada8baf55560f3ac92d43fbe503ee672d5b14d1ac7d4"
     ) {
-      setCoursePrice(baseCoursePrice - 50000);
+      setCoursePrice(baseCoursePrice - 5000);
       setIsPromoCodeApplied(true);
       setFormErrors((e) => ({
         ...e,
