@@ -26,8 +26,6 @@ class StrapiService {
     this.#token = "";
     this.#tokenUpdating = false;
     this.#refreshAttempts = 0;
-    this.updateToken();
-    setInterval(() => this.updateToken(), 1000 * 60 * 60);
   }
 
   private async waitForTokenUpdate<T>(fn: () => Promise<T>): Promise<T> {
@@ -71,48 +69,46 @@ class StrapiService {
   }
 
   async getPromocodes(): Promise<StrapiPromocode[]> {
-    return this.waitForTokenUpdate(async () => {
-      const response = await axios.get(`${this.#baseUrl}/promocodes`, {
-        headers: {
-          Authorization: `Bearer ${this.#token}`,
-        },
-      });
-      return response.data;
+    const response = await axios.get(`${this.#baseUrl}/promocodes`, {
+      headers: {
+        Authorization: `Bearer ${this.#token}`,
+      },
     });
+    return response.data;
   }
 
   async checkPromocode(
     promocode: string
   ): Promise<{ success: boolean; discount: number; newPrice: number }> {
-    return this.waitForTokenUpdate(async () => {
-      const response = await axios.get<StrapiPromocode[]>(
-        `${this.#baseUrl}/promocodes?code=${promocode}`,
-        {
-          headers: {
-            Authorization: `Bearer ${this.#token}`,
-          },
-        }
-      );
-
-      const foundPromocode = response.data[0];
-
-      let discount = 0;
-      const basePrice = 109500;
-      let newPrice = basePrice;
-      if (promocode === "AI15") {
-        discount = 15;
-        newPrice = Math.floor(basePrice * (1 - discount / 100));
-      } else if (foundPromocode && foundPromocode.discount >= 50) {
-        discount = 25;
-        newPrice = Math.floor(basePrice * (1 - discount / 100));
+    console.log(process.env);
+    await this.updateToken();
+    const response = await axios.get<StrapiPromocode[]>(
+      `${this.#baseUrl}/promocodes?code=${promocode}`,
+      {
+        headers: {
+          Authorization: `Bearer ${this.#token}`,
+        },
       }
+    );
 
-      return {
-        success: newPrice !== basePrice,
-        discount,
-        newPrice,
-      };
-    });
+    const foundPromocode = response.data[0];
+
+    let discount = 0;
+    const basePrice = 109500;
+    let newPrice = basePrice;
+    if (promocode === "AI15") {
+      discount = 15;
+      newPrice = Math.floor(basePrice * (1 - discount / 100));
+    } else if (foundPromocode && foundPromocode.discount >= 50) {
+      discount = 25;
+      newPrice = Math.floor(basePrice * (1 - discount / 100));
+    }
+
+    return {
+      success: newPrice !== basePrice,
+      discount,
+      newPrice,
+    };
   }
 }
 
