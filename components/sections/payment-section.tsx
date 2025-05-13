@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import useValidateForm from "@/hooks/use-validate-form";
-import { createHash } from "crypto";
 import { Calendar, CheckCircle, Clock, CreditCard } from "lucide-react";
 import Script from "next/script";
 import React, { useMemo, useState } from "react";
@@ -54,7 +53,7 @@ export default function PaymentSection() {
     setFormErrors,
   } = useValidateForm();
   const baseCoursePrice = 109500;
-  const [coursePrice, setCoursePrice] = useState(baseCoursePrice - 25000);
+  const [coursePrice, setCoursePrice] = useState(baseCoursePrice - 10900);
   const [promoCode, setPromoCode] = useState("");
   const [isPromoCodeApplied, setIsPromoCodeApplied] = useState(false);
   const discount = Math.round(
@@ -67,15 +66,24 @@ export default function PaymentSection() {
     }
   };
 
-  const applyPromoCodeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const applyPromoCodeHandler = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
     if (isPromoCodeApplied) return;
 
-    const hash = createHash("sha256").update(promoCode).digest("hex");
-    if (
-      hash ===
-      "22c74ad7366711c457feada8baf55560f3ac92d43fbe503ee672d5b14d1ac7d4"
-    ) {
-      setCoursePrice(baseCoursePrice - 30000);
+    const response = await fetch("/api/promocodes", {
+      method: "POST",
+      body: JSON.stringify({ promoCode }),
+    });
+
+    const { success, discount, newPrice } = (await response.json()) as {
+      success: boolean;
+      discount: number;
+      newPrice: number;
+    };
+
+    if (success) {
+      setCoursePrice(newPrice);
       setIsPromoCodeApplied(true);
       setFormErrors((e) => ({
         ...e,
@@ -311,7 +319,7 @@ export default function PaymentSection() {
                 {/* <ClosedDateCard date="3-й поток — старт 28 апреля" /> */}
                 <StartDateCard
                   date="4-й поток — старт 19 мая"
-                  remainingPlaces={9}
+                  remainingPlaces={8}
                 />
                 <StartDateCard
                   date="5-й поток — старт 2 июня"
