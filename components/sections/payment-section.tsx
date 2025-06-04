@@ -316,19 +316,23 @@ export default function PaymentSection() {
                 <p className="font-medium text-base text-gray-700 mb-2">
                   Ближайшие потоки:
                 </p>
-                <ClosedDateCard date="4-й поток — старт 19 мая" />
+                {/* <ClosedDateCard date="4-й поток — старт 19 мая" /> */}
                 {/* <StartDateCard
                   date="4-й поток — старт 19 мая"
                   remainingPlaces={8}
                 /> */}
                 <StartDateCard
                   date="5-й поток — старт 16 июня"
-                  remainingPlaces={12}
+                  remainingPlaces={11}
+                />
+                <StartDateCard
+                  date="6-й поток — старт 7 июля"
+                  remainingPlaces={15}
                 />
 
                 <div className="flex items-center gap-1 mt-2">
                   <Clock className="h-4 w-4" />
-                  <span>Длительность: 2 недели</span>
+                  <span>Длительность: 4 недели</span>
                 </div>
               </div>
 
