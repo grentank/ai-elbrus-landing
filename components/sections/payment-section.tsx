@@ -321,10 +321,10 @@ export default function PaymentSection() {
                   date="4-й поток — старт 19 мая"
                   remainingPlaces={8}
                 /> */}
-                <StartDateCard
+                {/* <StartDateCard
                   date="5-й поток — старт 16 июня"
                   remainingPlaces={11}
-                />
+                /> */}
                 <StartDateCard
                   date="6-й поток — старт 7 июля"
                   remainingPlaces={15}
