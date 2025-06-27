@@ -326,7 +326,7 @@ export default function PaymentSection() {
                   remainingPlaces={11}
                 /> */}
                 <StartDateCard
-                  date="6-й поток — старт 7 июля"
+                  date="6-й поток — старт 14 июля"
                   remainingPlaces={15}
                 />
 
