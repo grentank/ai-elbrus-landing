@@ -13,6 +13,11 @@ class StrapiService {
   readonly #auth: { email: string; password: string };
   #refreshAttempts: number;
   #tokenUpdating: boolean;
+  readonly #fixedPromocodes: {
+    value: string;
+    discount: number;
+    expirationDate?: Date;
+  }[];
 
   constructor() {
     const STRAPI_URL_DEV = "https://dev-api-4ug6sq9h.elbrusboot.camp";
@@ -26,6 +31,19 @@ class StrapiService {
     this.#token = "";
     this.#tokenUpdating = false;
     this.#refreshAttempts = 0;
+    this.#fixedPromocodes = [
+      { value: "AI15", discount: 15 },
+      {
+        value: "50JULY14",
+        discount: 50,
+        expirationDate: new Date(2025, 6, 15),
+      },
+      {
+        value: "50AUGUST1",
+        discount: 50,
+        expirationDate: new Date(2025, 7, 2),
+      },
+    ];
   }
 
   private async waitForTokenUpdate<T>(fn: () => Promise<T>): Promise<T> {
@@ -80,7 +98,6 @@ class StrapiService {
   async checkPromocode(
     promocode: string
   ): Promise<{ success: boolean; discount: number; newPrice: number }> {
-    console.log(process.env);
     await this.updateToken();
     const response = await axios.get<StrapiPromocode[]>(
       `${this.#baseUrl}/promocodes?code=${promocode}`,
@@ -96,13 +113,17 @@ class StrapiService {
     let discount = 0;
     const basePrice = 109500;
     let newPrice = basePrice;
-    if (promocode === "AI15") {
-      discount = 15;
-      newPrice = Math.floor(basePrice * (1 - discount / 100));
+
+    const fixedPromo = this.#fixedPromocodes.find((p) => p.value === promocode);
+    if (
+      fixedPromo &&
+      (!fixedPromo.expirationDate || fixedPromo.expirationDate > new Date())
+    ) {
+      discount = fixedPromo.discount;
     } else if (foundPromocode && foundPromocode.discount >= 50) {
       discount = 25;
-      newPrice = Math.floor(basePrice * (1 - discount / 100));
     }
+    newPrice = Math.floor(basePrice * (1 - discount / 100));
 
     return {
       success: newPrice !== basePrice,
