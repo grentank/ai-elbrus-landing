@@ -317,16 +317,8 @@ export default function PaymentSection() {
                   Ближайшие потоки:
                 </p>
                 {/* <ClosedDateCard date="4-й поток — старт 19 мая" /> */}
-                {/* <StartDateCard
-                  date="4-й поток — старт 19 мая"
-                  remainingPlaces={8}
-                /> */}
-                {/* <StartDateCard
-                  date="5-й поток — старт 16 июня"
-                  remainingPlaces={11}
-                /> */}
                 <StartDateCard
-                  date="6-й поток — старт 14 июля"
+                  date="6-й поток — старт 11 августа"
                   remainingPlaces={15}
                 />
 
